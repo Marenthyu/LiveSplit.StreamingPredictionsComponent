@@ -23,6 +23,7 @@ namespace LiveSplit.UI.Components
 
         private LiveSplitState State { get; set; }
         private static StreamingPredictionsSettings Settings { get; set; }
+        private bool hasClosedPrediction = false;
 
         private string currentPredictionID = "";
         private string yesID = "";
@@ -120,6 +121,19 @@ namespace LiveSplit.UI.Components
                             LockCurrentPrediction();
                         }
                     }
+
+                    if (Settings.ResolveOnSplit && State.CurrentSplit.Name.Contains(Settings.ResolveSplitName))
+                    {
+                        var splitIndex = State.CurrentSplitIndex - 1;
+                        var timeDifference = State.Run[splitIndex].SplitTime[State.CurrentTimingMethod] - State.Run[splitIndex].Comparisons[State.CurrentComparison][State.CurrentTimingMethod];
+                        var ahead = timeDifference < TimeSpan.Zero;
+                        ResolveCurrentPrediction(ahead);
+                    } else if (Settings.ResolveOnSplitTimed && State.CurrentSplit.Name.Contains(Settings.ResolveSplitTimedName))
+                    {
+                        var wasFastEnough = State.CurrentTime[State.CurrentTimingMethod].Value <
+                                            TimeSpan.FromSeconds(Settings.ResolveTime);
+                        ResolveCurrentPrediction(wasFastEnough);
+                    }
                 }
             }
             catch (Exception ex)
@@ -143,6 +157,8 @@ namespace LiveSplit.UI.Components
                     {
                         ResolveCurrentPrediction(false);
                     }
+
+                    hasClosedPrediction = false;
                 }
             }
             catch (Exception ex)
@@ -174,22 +190,41 @@ namespace LiveSplit.UI.Components
                 }
             }
 
+            hasClosedPrediction = false;
+
             return j;
         }
 
         private dynamic ResolveCurrentPrediction(bool success)
         {
-            return DoWebRequest("https://api.twitch.tv/helix/predictions", "PATCH",
-                "{\"broadcaster_id\":\"" + StreamingPredictionsSettings.userID +
-                "\", \"id\":\"" + currentPredictionID + "\", \"status\":\"RESOLVED\", \"winning_outcome_id\": \"" +
-                (success ? yesID : noID) + "\"}");
+            if (!hasClosedPrediction)
+            {
+                hasClosedPrediction = true;
+                return DoWebRequest("https://api.twitch.tv/helix/predictions", "PATCH",
+                    "{\"broadcaster_id\":\"" + StreamingPredictionsSettings.userID +
+                    "\", \"id\":\"" + currentPredictionID + "\", \"status\":\"RESOLVED\", \"winning_outcome_id\": \"" +
+                    (success ? yesID : noID) + "\"}");
+            }
+            else
+            {
+                return null;
+            }
+            
         }
 
         private dynamic CancelCurrentPrediction()
         {
-            return DoWebRequest("https://api.twitch.tv/helix/predictions", "PATCH",
-                "{\"broadcaster_id\":\"" + StreamingPredictionsSettings.userID +
-                "\", \"id\":\"" + currentPredictionID + "\", \"status\":\"CANCELED\"}");
+            if (!hasClosedPrediction)
+            {
+                hasClosedPrediction = true;
+                return DoWebRequest("https://api.twitch.tv/helix/predictions", "PATCH",
+                    "{\"broadcaster_id\":\"" + StreamingPredictionsSettings.userID +
+                    "\", \"id\":\"" + currentPredictionID + "\", \"status\":\"CANCELED\"}");
+            }
+            else
+            {
+                return null;
+            }
         }
 
         private dynamic LockCurrentPrediction()

@@ -53,10 +53,28 @@ namespace LiveSplit.UI.Components
             set => _lockSplitName = value;
         }
         
+        public string ResolveSplitName
+        {
+            get => _resolveSplitName;
+            set => _resolveSplitName = value;
+        }
+        
+        public string ResolveSplitTimedName
+        {
+            get => _resolveSplitTimedName;
+            set => _resolveSplitTimedName = value;
+        }
+        
         public int LockTime
         {
             get => _lockTime;
             set => _lockTime = value;
+        }
+        
+        public int ResolveTime
+        {
+            get => _resolveTime;
+            set => _resolveTime = value;
         }
 
         public bool CancelOnReset
@@ -88,6 +106,18 @@ namespace LiveSplit.UI.Components
             get => _resolveOnEndOfRun;
             set => _resolveOnEndOfRun = value;
         }
+        
+        public bool ResolveOnSplit
+        {
+            get => _resolveOnSplit;
+            set => _resolveOnSplit = value;
+        }
+        
+        public bool ResolveOnSplitTimed
+        {
+            get => _resolveOnSplitTimed;
+            set => _resolveOnSplitTimed = value;
+        }
 
         private const string Httpredirect = "<!DOCTYPE html>\n" + "<html lang=\"en\">\n" + "    <head>\n" +
                                             "        <meta charset=\"UTF-8\">\n" +
@@ -115,13 +145,18 @@ namespace LiveSplit.UI.Components
         private string _predictionTitle;
         private string _createSplitName;
         private string _lockSplitName;
+        private string _resolveSplitName;
+        private string _resolveSplitTimedName;
         private static string _userName = "";
         private int _lockTime = 600;
+        private int _resolveTime = 60;
         private static bool _cancelOnReset = false;
         private static bool _createOnStart = true;
         private static bool _createOnSplit = false;
         private static bool _lockOnSplit = false;
         private static bool _resolveOnEndOfRun = true;
+        private static bool _resolveOnSplit = false;
+        private static bool _resolveOnSplitTimed = false;
 
         private static HttpListener _listener;
         private static bool isListening = false;
@@ -139,12 +174,16 @@ namespace LiveSplit.UI.Components
             PredictionTitle = "Will this run PB?";
             CreateSplitName = "";
             LockSplitName = "";
+            ResolveSplitName = "";
             LockTime = 600;
+            ResolveTime = 60;
             CancelOnReset = false;
             ResolveOnEndOfRun = true;
             CreateOnStart = true;
             CreateOnSplit = false;
             LockOnSplit = false;
+            ResolveOnSplit = false;
+            ResolveOnSplitTimed = false;
             //for (int i = 0; i < WaveOut.DeviceCount; ++i)
             //  cbOutputDevice.Items.Add(WaveOut.GetCapabilities(i));
             txtOAuthToken.DataBindings.Add("Text", this, "OAuthToken");
@@ -153,12 +192,17 @@ namespace LiveSplit.UI.Components
             textBox3.DataBindings.Add("Text", this, "PredictionTitle");
             textBox4.DataBindings.Add("Text", this, "CreateSplitName");
             textBox5.DataBindings.Add("Text", this, "LockSplitName");
+            textBox6.DataBindings.Add("Text", this, "ResolveSplitName");
+            textBox7.DataBindings.Add("Text", this, "ResolveSplitTimedName");
             numericUpDown1.DataBindings.Add("Value", this, "LockTime");
+            numericUpDown2.DataBindings.Add("Value", this, "ResolveTime");
             checkBox1.DataBindings.Add("Checked", this, "CancelOnReset");
             checkBox2.DataBindings.Add("Checked", this, "ResolveOnEndOfRun");
             checkBox3.DataBindings.Add("Checked", this, "CreateOnStart");
             checkBox4.DataBindings.Add("Checked", this, "CreateOnSplit");
             checkBox5.DataBindings.Add("Checked", this, "LockOnSplit");
+            checkBox6.DataBindings.Add("Checked", this, "ResolveOnSplit");
+            checkBox7.DataBindings.Add("Checked", this, "ResolveOnSplitTimed");
             State = state;
         }
 
@@ -173,12 +217,17 @@ namespace LiveSplit.UI.Components
             PredictionTitle = SettingsHelper.ParseString(element["PredictionTitle"], "Will this run PB?");
             CreateSplitName = SettingsHelper.ParseString(element["CreateSplitName"], "");
             LockSplitName = SettingsHelper.ParseString(element["LockSplitName"], "");
+            ResolveSplitName = SettingsHelper.ParseString(element["ResolveSplitName"], "");
+            ResolveSplitTimedName = SettingsHelper.ParseString(element["ResolveSplitTimedName"], "");
             CancelOnReset = SettingsHelper.ParseBool(element["CancelOnReset"], false);
             ResolveOnEndOfRun = SettingsHelper.ParseBool(element["ResolveOnEndOfRun"], true);
             CreateOnStart = SettingsHelper.ParseBool(element["CreateOnStart"], true);
             CreateOnSplit = SettingsHelper.ParseBool(element["CreateOnSplit"], false);
             LockOnSplit = SettingsHelper.ParseBool(element["LockOnSplit"], false);
+            ResolveOnSplit = SettingsHelper.ParseBool(element["ResolveOnSplit"], false);
+            ResolveOnSplitTimed = SettingsHelper.ParseBool(element["ResolveOnSplitTimed"], false);
             LockTime = SettingsHelper.ParseInt(element["LockTime"], 600);
+            ResolveTime = SettingsHelper.ParseInt(element["ResolveTime"], 60);
             validateToken().Wait();
         }
 
@@ -196,19 +245,24 @@ namespace LiveSplit.UI.Components
 
         private int CreateSettingsNode(XmlDocument document, XmlElement parent)
         {
-            return SettingsHelper.CreateSetting(document, parent, "Version", "1.7") ^
+            return SettingsHelper.CreateSetting(document, parent, "Version", "1.8") ^
                    SettingsHelper.CreateSetting(document, parent, "OAuthToken", OAuthToken) ^
                    SettingsHelper.CreateSetting(document, parent, "YesOptionName", YesOptionName) ^
                    SettingsHelper.CreateSetting(document, parent, "NoOptionName", NoOptionName) ^
                    SettingsHelper.CreateSetting(document, parent, "PredictionTitle", PredictionTitle) ^
                    SettingsHelper.CreateSetting(document, parent, "CreateSplitName", CreateSplitName) ^
                    SettingsHelper.CreateSetting(document, parent, "LockSplitName", LockSplitName) ^
+                   SettingsHelper.CreateSetting(document, parent, "ResolveSplitName", ResolveSplitName) ^
+                   SettingsHelper.CreateSetting(document, parent, "ResolveSplitTimedName", ResolveSplitTimedName) ^
                    SettingsHelper.CreateSetting(document, parent, "LockTime", LockTime) ^
+                   SettingsHelper.CreateSetting(document, parent, "ResolveTime", ResolveTime) ^
                    SettingsHelper.CreateSetting(document, parent, "CancelOnReset", CancelOnReset) ^
                    SettingsHelper.CreateSetting(document, parent, "CreateOnStart", CreateOnStart) ^
                    SettingsHelper.CreateSetting(document, parent, "CreateOnSplit", CreateOnSplit) ^
                    SettingsHelper.CreateSetting(document, parent, "LockOnSplit", LockOnSplit) ^
-                   SettingsHelper.CreateSetting(document, parent, "ResolveOnEndOfRun", ResolveOnEndOfRun);
+                   SettingsHelper.CreateSetting(document, parent, "ResolveOnEndOfRun", ResolveOnEndOfRun) ^
+                   SettingsHelper.CreateSetting(document, parent, "ResolveOnSplit", ResolveOnSplit) ^
+                   SettingsHelper.CreateSetting(document, parent, "ResolveOnSplitTimed", ResolveOnSplitTimed);
         }
 
 #pragma warning disable 1998

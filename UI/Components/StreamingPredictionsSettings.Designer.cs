@@ -48,7 +48,15 @@
             this.numericUpDown1 = new System.Windows.Forms.NumericUpDown();
             this.label6 = new System.Windows.Forms.Label();
             this.label7 = new System.Windows.Forms.Label();
+            this.textBox6 = new System.Windows.Forms.TextBox();
+            this.checkBox6 = new System.Windows.Forms.CheckBox();
+            this.textBox7 = new System.Windows.Forms.TextBox();
+            this.checkBox7 = new System.Windows.Forms.CheckBox();
+            this.numericUpDown2 = new System.Windows.Forms.NumericUpDown();
+            this.label8 = new System.Windows.Forms.Label();
+            this.label9 = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize) (this.numericUpDown1)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize) (this.numericUpDown2)).BeginInit();
             this.SuspendLayout();
             // 
             // label1
@@ -238,10 +246,75 @@
             this.label7.TabIndex = 21;
             this.label7.Text = "seconds";
             // 
+            // textBox6
+            // 
+            this.textBox6.Location = new System.Drawing.Point(10, 389);
+            this.textBox6.Name = "textBox6";
+            this.textBox6.Size = new System.Drawing.Size(456, 20);
+            this.textBox6.TabIndex = 23;
+            // 
+            // checkBox6
+            // 
+            this.checkBox6.Location = new System.Drawing.Point(10, 359);
+            this.checkBox6.Name = "checkBox6";
+            this.checkBox6.Size = new System.Drawing.Size(456, 24);
+            this.checkBox6.TabIndex = 22;
+            this.checkBox6.Text = "Resolve Prediction if ahead by the start of this Split:";
+            this.checkBox6.UseVisualStyleBackColor = true;
+            // 
+            // textBox7
+            // 
+            this.textBox7.Location = new System.Drawing.Point(115, 441);
+            this.textBox7.Name = "textBox7";
+            this.textBox7.Size = new System.Drawing.Size(351, 20);
+            this.textBox7.TabIndex = 25;
+            // 
+            // checkBox7
+            // 
+            this.checkBox7.Location = new System.Drawing.Point(10, 415);
+            this.checkBox7.Name = "checkBox7";
+            this.checkBox7.Size = new System.Drawing.Size(168, 24);
+            this.checkBox7.TabIndex = 24;
+            this.checkBox7.Text = "Resolve Prediction if less than";
+            this.checkBox7.UseVisualStyleBackColor = true;
+            // 
+            // numericUpDown2
+            // 
+            this.numericUpDown2.Location = new System.Drawing.Point(174, 418);
+            this.numericUpDown2.Maximum = new decimal(new int[] {3686400, 0, 0, 0});
+            this.numericUpDown2.Minimum = new decimal(new int[] {100000, 0, 0, -2147483648});
+            this.numericUpDown2.Name = "numericUpDown2";
+            this.numericUpDown2.Size = new System.Drawing.Size(122, 20);
+            this.numericUpDown2.TabIndex = 26;
+            this.numericUpDown2.Value = new decimal(new int[] {60, 0, 0, 0});
+            // 
+            // label8
+            // 
+            this.label8.Location = new System.Drawing.Point(302, 420);
+            this.label8.Name = "label8";
+            this.label8.Size = new System.Drawing.Size(164, 18);
+            this.label8.TabIndex = 27;
+            this.label8.Text = "seconds are on the Timer when";
+            // 
+            // label9
+            // 
+            this.label9.Location = new System.Drawing.Point(29, 444);
+            this.label9.Name = "label9";
+            this.label9.Size = new System.Drawing.Size(80, 18);
+            this.label9.TabIndex = 28;
+            this.label9.Text = "this split starts:";
+            // 
             // StreamingPredictionsSettings
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.Controls.Add(this.label9);
+            this.Controls.Add(this.label8);
+            this.Controls.Add(this.numericUpDown2);
+            this.Controls.Add(this.textBox7);
+            this.Controls.Add(this.checkBox7);
+            this.Controls.Add(this.textBox6);
+            this.Controls.Add(this.checkBox6);
             this.Controls.Add(this.label7);
             this.Controls.Add(this.label6);
             this.Controls.Add(this.numericUpDown1);
@@ -264,11 +337,22 @@
             this.Controls.Add(this.txtOAuthToken);
             this.Name = "StreamingPredictionsSettings";
             this.Padding = new System.Windows.Forms.Padding(7);
-            this.Size = new System.Drawing.Size(476, 453);
+            this.Size = new System.Drawing.Size(476, 509);
             ((System.ComponentModel.ISupportInitialize) (this.numericUpDown1)).EndInit();
+            ((System.ComponentModel.ISupportInitialize) (this.numericUpDown2)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
         }
+
+        private System.Windows.Forms.Label label9;
+
+        private System.Windows.Forms.CheckBox checkBox7;
+        private System.Windows.Forms.TextBox textBox7;
+        private System.Windows.Forms.NumericUpDown numericUpDown2;
+        private System.Windows.Forms.Label label8;
+
+        private System.Windows.Forms.TextBox textBox6;
+        private System.Windows.Forms.CheckBox checkBox6;
 
         private System.Windows.Forms.Label label7;
 
