@@ -53,6 +53,8 @@
             this.radioButton2 = new System.Windows.Forms.RadioButton();
             this.radioButton1 = new System.Windows.Forms.RadioButton();
             this.groupBox2 = new System.Windows.Forms.GroupBox();
+            this.label12 = new System.Windows.Forms.Label();
+            this.label10 = new System.Windows.Forms.Label();
             this.label9 = new System.Windows.Forms.Label();
             this.radioButton9 = new System.Windows.Forms.RadioButton();
             this.radioButton8 = new System.Windows.Forms.RadioButton();
@@ -218,14 +220,14 @@
             // 
             // textBox6
             // 
-            this.textBox6.Location = new System.Drawing.Point(77, 104);
+            this.textBox6.Location = new System.Drawing.Point(77, 94);
             this.textBox6.Name = "textBox6";
             this.textBox6.Size = new System.Drawing.Size(356, 20);
             this.textBox6.TabIndex = 23;
             // 
             // numericUpDown2
             // 
-            this.numericUpDown2.Location = new System.Drawing.Point(129, 180);
+            this.numericUpDown2.Location = new System.Drawing.Point(129, 170);
             this.numericUpDown2.Maximum = new decimal(new int[] {3686400, 0, 0, 0});
             this.numericUpDown2.Minimum = new decimal(new int[] {100000, 0, 0, -2147483648});
             this.numericUpDown2.Name = "numericUpDown2";
@@ -235,7 +237,7 @@
             // 
             // label8
             // 
-            this.label8.Location = new System.Drawing.Point(191, 182);
+            this.label8.Location = new System.Drawing.Point(191, 172);
             this.label8.Name = "label8";
             this.label8.Size = new System.Drawing.Size(232, 18);
             this.label8.TabIndex = 27;
@@ -285,6 +287,8 @@
             // 
             // groupBox2
             // 
+            this.groupBox2.Controls.Add(this.label12);
+            this.groupBox2.Controls.Add(this.label10);
             this.groupBox2.Controls.Add(this.label9);
             this.groupBox2.Controls.Add(this.radioButton9);
             this.groupBox2.Controls.Add(this.radioButton8);
@@ -300,14 +304,32 @@
             this.groupBox2.Controls.Add(this.numericUpDown2);
             this.groupBox2.Location = new System.Drawing.Point(10, 342);
             this.groupBox2.Name = "groupBox2";
-            this.groupBox2.Size = new System.Drawing.Size(439, 250);
+            this.groupBox2.Size = new System.Drawing.Size(439, 225);
             this.groupBox2.TabIndex = 30;
             this.groupBox2.TabStop = false;
             this.groupBox2.Text = "Resolve Prediction When";
             // 
+            // label12
+            // 
+            this.label12.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
+            this.label12.Location = new System.Drawing.Point(0, 193);
+            this.label12.Name = "label12";
+            this.label12.Size = new System.Drawing.Size(439, 2);
+            this.label12.TabIndex = 37;
+            this.label12.Text = "label12";
+            // 
+            // label10
+            // 
+            this.label10.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
+            this.label10.Location = new System.Drawing.Point(0, 89);
+            this.label10.Name = "label10";
+            this.label10.Size = new System.Drawing.Size(439, 2);
+            this.label10.TabIndex = 36;
+            this.label10.Text = "label10";
+            // 
             // label9
             // 
-            this.label9.Location = new System.Drawing.Point(6, 107);
+            this.label9.Location = new System.Drawing.Point(6, 97);
             this.label9.Name = "label9";
             this.label9.Size = new System.Drawing.Size(65, 18);
             this.label9.TabIndex = 35;
@@ -315,7 +337,7 @@
             // 
             // radioButton9
             // 
-            this.radioButton9.Location = new System.Drawing.Point(6, 128);
+            this.radioButton9.Location = new System.Drawing.Point(6, 118);
             this.radioButton9.Name = "radioButton9";
             this.radioButton9.Size = new System.Drawing.Size(129, 20);
             this.radioButton9.TabIndex = 34;
@@ -362,7 +384,7 @@
             // doNotResolveRadioButton
             // 
             this.doNotResolveRadioButton.Checked = true;
-            this.doNotResolveRadioButton.Location = new System.Drawing.Point(6, 219);
+            this.doNotResolveRadioButton.Location = new System.Drawing.Point(6, 198);
             this.doNotResolveRadioButton.Name = "doNotResolveRadioButton";
             this.doNotResolveRadioButton.Size = new System.Drawing.Size(229, 24);
             this.doNotResolveRadioButton.TabIndex = 29;
@@ -372,7 +394,7 @@
             // 
             // radioButton6
             // 
-            this.radioButton6.Location = new System.Drawing.Point(6, 180);
+            this.radioButton6.Location = new System.Drawing.Point(6, 170);
             this.radioButton6.Name = "radioButton6";
             this.radioButton6.Size = new System.Drawing.Size(117, 20);
             this.radioButton6.TabIndex = 24;
@@ -381,7 +403,7 @@
             // 
             // radioButton5
             // 
-            this.radioButton5.Location = new System.Drawing.Point(6, 154);
+            this.radioButton5.Location = new System.Drawing.Point(6, 144);
             this.radioButton5.Name = "radioButton5";
             this.radioButton5.Size = new System.Drawing.Size(129, 20);
             this.radioButton5.TabIndex = 1;
@@ -422,7 +444,7 @@
             this.Controls.Add(this.txtOAuthToken);
             this.Name = "StreamingPredictionsSettings";
             this.Padding = new System.Windows.Forms.Padding(7);
-            this.Size = new System.Drawing.Size(457, 627);
+            this.Size = new System.Drawing.Size(457, 574);
             ((System.ComponentModel.ISupportInitialize) (this.numericUpDown1)).EndInit();
             ((System.ComponentModel.ISupportInitialize) (this.numericUpDown2)).EndInit();
             this.groupBox1.ResumeLayout(false);
@@ -433,6 +455,10 @@
             this.ResumeLayout(false);
             this.PerformLayout();
         }
+
+        private System.Windows.Forms.Label label12;
+
+        private System.Windows.Forms.Label label10;
 
         private System.Windows.Forms.Label label9;
 
