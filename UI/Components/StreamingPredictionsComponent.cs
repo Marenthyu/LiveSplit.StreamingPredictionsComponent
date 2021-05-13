@@ -129,17 +129,29 @@ namespace LiveSplit.UI.Components
                         }
                     }
 
-                    if (Settings.ResolveOnSplit && State.CurrentSplit.Name.Contains(Settings.ResolveSplitName))
+                    if (State.CurrentSplit.Name.Contains(Settings.ResolveSplitName))
                     {
-                        var splitIndex = State.CurrentSplitIndex - 1;
-                        var timeDifference = State.Run[splitIndex].SplitTime[State.CurrentTimingMethod] - State.Run[splitIndex].Comparisons[State.CurrentComparison][State.CurrentTimingMethod];
-                        var ahead = timeDifference < TimeSpan.Zero;
-                        ResolveCurrentPrediction(ahead);
-                    } else if (Settings.ResolveOnSplitTimed && State.CurrentSplit.Name.Contains(Settings.ResolveSplitTimedName))
-                    {
-                        var wasFastEnough = State.CurrentTime[State.CurrentTimingMethod].Value <
-                                            TimeSpan.FromSeconds(Settings.ResolveTime);
-                        ResolveCurrentPrediction(wasFastEnough);
+                        if (Settings.ResolveOnSplitReached)
+                        {
+                            ResolveCurrentPrediction(true);
+                        }
+
+                        if (Settings.ResolveOnSplit)
+                        {
+                            var splitIndex = State.CurrentSplitIndex - 1;
+                            var timeDifference = State.Run[splitIndex].SplitTime[State.CurrentTimingMethod] -
+                                                 State.Run[splitIndex].Comparisons[State.CurrentComparison][
+                                                     State.CurrentTimingMethod];
+                            var ahead = timeDifference < TimeSpan.Zero;
+                            ResolveCurrentPrediction(ahead);
+                        }
+
+                        if (Settings.ResolveOnSplitTimed)
+                        {
+                            var wasFastEnough = State.CurrentTime[State.CurrentTimingMethod].Value <
+                                                TimeSpan.FromSeconds(Settings.ResolveTime);
+                            ResolveCurrentPrediction(wasFastEnough);
+                        }
                     }
                 }
             }
@@ -216,7 +228,6 @@ namespace LiveSplit.UI.Components
             {
                 return null;
             }
-            
         }
 
         private dynamic CancelCurrentPrediction()

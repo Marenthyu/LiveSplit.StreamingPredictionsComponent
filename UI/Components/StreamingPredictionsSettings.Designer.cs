@@ -46,7 +46,6 @@
             this.label6 = new System.Windows.Forms.Label();
             this.label7 = new System.Windows.Forms.Label();
             this.textBox6 = new System.Windows.Forms.TextBox();
-            this.textBox7 = new System.Windows.Forms.TextBox();
             this.numericUpDown2 = new System.Windows.Forms.NumericUpDown();
             this.label8 = new System.Windows.Forms.Label();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
@@ -54,11 +53,13 @@
             this.radioButton2 = new System.Windows.Forms.RadioButton();
             this.radioButton1 = new System.Windows.Forms.RadioButton();
             this.groupBox2 = new System.Windows.Forms.GroupBox();
+            this.label9 = new System.Windows.Forms.Label();
+            this.radioButton9 = new System.Windows.Forms.RadioButton();
+            this.radioButton8 = new System.Windows.Forms.RadioButton();
             this.radioButton7 = new System.Windows.Forms.RadioButton();
             this.label11 = new System.Windows.Forms.Label();
             this.numericUpDown3 = new System.Windows.Forms.NumericUpDown();
             this.doNotResolveRadioButton = new System.Windows.Forms.RadioButton();
-            this.label10 = new System.Windows.Forms.Label();
             this.radioButton6 = new System.Windows.Forms.RadioButton();
             this.radioButton5 = new System.Windows.Forms.RadioButton();
             this.radioButton4 = new System.Windows.Forms.RadioButton();
@@ -193,7 +194,7 @@
             this.numericUpDown1.Maximum = new decimal(new int[] {1800, 0, 0, 0});
             this.numericUpDown1.Minimum = new decimal(new int[] {1, 0, 0, 0});
             this.numericUpDown1.Name = "numericUpDown1";
-            this.numericUpDown1.Size = new System.Drawing.Size(197, 20);
+            this.numericUpDown1.Size = new System.Drawing.Size(180, 20);
             this.numericUpDown1.TabIndex = 19;
             this.numericUpDown1.Value = new decimal(new int[] {600, 0, 0, 0});
             // 
@@ -209,7 +210,7 @@
             // label7
             // 
             this.label7.AutoSize = true;
-            this.label7.Location = new System.Drawing.Point(318, 110);
+            this.label7.Location = new System.Drawing.Point(301, 110);
             this.label7.Name = "label7";
             this.label7.Size = new System.Drawing.Size(47, 13);
             this.label7.TabIndex = 21;
@@ -217,21 +218,14 @@
             // 
             // textBox6
             // 
-            this.textBox6.Location = new System.Drawing.Point(143, 40);
+            this.textBox6.Location = new System.Drawing.Point(77, 104);
             this.textBox6.Name = "textBox6";
-            this.textBox6.Size = new System.Drawing.Size(290, 20);
+            this.textBox6.Size = new System.Drawing.Size(356, 20);
             this.textBox6.TabIndex = 23;
-            // 
-            // textBox7
-            // 
-            this.textBox7.Location = new System.Drawing.Point(26, 89);
-            this.textBox7.Name = "textBox7";
-            this.textBox7.Size = new System.Drawing.Size(407, 20);
-            this.textBox7.TabIndex = 25;
             // 
             // numericUpDown2
             // 
-            this.numericUpDown2.Location = new System.Drawing.Point(81, 66);
+            this.numericUpDown2.Location = new System.Drawing.Point(129, 180);
             this.numericUpDown2.Maximum = new decimal(new int[] {3686400, 0, 0, 0});
             this.numericUpDown2.Minimum = new decimal(new int[] {100000, 0, 0, -2147483648});
             this.numericUpDown2.Name = "numericUpDown2";
@@ -241,11 +235,11 @@
             // 
             // label8
             // 
-            this.label8.Location = new System.Drawing.Point(143, 68);
+            this.label8.Location = new System.Drawing.Point(191, 182);
             this.label8.Name = "label8";
             this.label8.Size = new System.Drawing.Size(232, 18);
             this.label8.TabIndex = 27;
-            this.label8.Text = "seconds are on the Timer when this Split starts:";
+            this.label8.Text = "seconds on the Timer";
             // 
             // groupBox1
             // 
@@ -277,7 +271,7 @@
             this.radioButton2.Name = "radioButton2";
             this.radioButton2.Size = new System.Drawing.Size(104, 20);
             this.radioButton2.TabIndex = 17;
-            this.radioButton2.Text = "This Split starts:";
+            this.radioButton2.Text = "this Split starts:";
             this.radioButton2.UseVisualStyleBackColor = true;
             // 
             // radioButton1
@@ -286,50 +280,78 @@
             this.radioButton1.Name = "radioButton1";
             this.radioButton1.Size = new System.Drawing.Size(104, 24);
             this.radioButton1.TabIndex = 0;
-            this.radioButton1.Text = "The Timer starts";
+            this.radioButton1.Text = "the Timer starts";
             this.radioButton1.UseVisualStyleBackColor = true;
             // 
             // groupBox2
             // 
+            this.groupBox2.Controls.Add(this.label9);
+            this.groupBox2.Controls.Add(this.radioButton9);
+            this.groupBox2.Controls.Add(this.radioButton8);
             this.groupBox2.Controls.Add(this.radioButton7);
             this.groupBox2.Controls.Add(this.label11);
             this.groupBox2.Controls.Add(this.numericUpDown3);
             this.groupBox2.Controls.Add(this.doNotResolveRadioButton);
-            this.groupBox2.Controls.Add(this.label10);
             this.groupBox2.Controls.Add(this.radioButton6);
             this.groupBox2.Controls.Add(this.radioButton5);
             this.groupBox2.Controls.Add(this.radioButton4);
-            this.groupBox2.Controls.Add(this.textBox7);
             this.groupBox2.Controls.Add(this.label8);
             this.groupBox2.Controls.Add(this.textBox6);
             this.groupBox2.Controls.Add(this.numericUpDown2);
             this.groupBox2.Location = new System.Drawing.Point(10, 342);
             this.groupBox2.Name = "groupBox2";
-            this.groupBox2.Size = new System.Drawing.Size(439, 170);
+            this.groupBox2.Size = new System.Drawing.Size(439, 250);
             this.groupBox2.TabIndex = 30;
             this.groupBox2.TabStop = false;
             this.groupBox2.Text = "Resolve Prediction When";
             // 
+            // label9
+            // 
+            this.label9.Location = new System.Drawing.Point(6, 107);
+            this.label9.Name = "label9";
+            this.label9.Size = new System.Drawing.Size(65, 18);
+            this.label9.TabIndex = 35;
+            this.label9.Text = "... this Split:";
+            // 
+            // radioButton9
+            // 
+            this.radioButton9.Location = new System.Drawing.Point(6, 128);
+            this.radioButton9.Name = "radioButton9";
+            this.radioButton9.Size = new System.Drawing.Size(129, 20);
+            this.radioButton9.TabIndex = 34;
+            this.radioButton9.Text = "starts";
+            this.radioButton9.UseVisualStyleBackColor = true;
+            // 
+            // radioButton8
+            // 
+            this.radioButton8.Location = new System.Drawing.Point(6, 40);
+            this.radioButton8.Name = "radioButton8";
+            this.radioButton8.Size = new System.Drawing.Size(104, 20);
+            this.radioButton8.TabIndex = 33;
+            this.radioButton8.TabStop = true;
+            this.radioButton8.Text = "the Run finishes";
+            this.radioButton8.UseVisualStyleBackColor = true;
+            // 
             // radioButton7
             // 
-            this.radioButton7.Location = new System.Drawing.Point(8, 115);
+            this.radioButton7.Location = new System.Drawing.Point(6, 66);
             this.radioButton7.Name = "radioButton7";
-            this.radioButton7.Size = new System.Drawing.Size(67, 20);
+            this.radioButton7.Size = new System.Drawing.Size(168, 20);
             this.radioButton7.TabIndex = 30;
-            this.radioButton7.Text = "less than";
+            this.radioButton7.Text = "the Run finishes with less than";
             this.radioButton7.UseVisualStyleBackColor = true;
             // 
             // label11
             // 
-            this.label11.Location = new System.Drawing.Point(143, 117);
+            this.label11.Location = new System.Drawing.Point(242, 68);
             this.label11.Name = "label11";
-            this.label11.Size = new System.Drawing.Size(232, 18);
+            this.label11.Size = new System.Drawing.Size(112, 18);
             this.label11.TabIndex = 32;
-            this.label11.Text = "seconds are on the Timer when the Run Ends";
+            this.label11.Text = "seconds on the Timer";
             // 
             // numericUpDown3
             // 
-            this.numericUpDown3.Location = new System.Drawing.Point(81, 115);
+            this.numericUpDown3.Location = new System.Drawing.Point(180, 66);
             this.numericUpDown3.Maximum = new decimal(new int[] {3686400, 0, 0, 0});
             this.numericUpDown3.Minimum = new decimal(new int[] {100000, 0, 0, -2147483648});
             this.numericUpDown3.Name = "numericUpDown3";
@@ -340,7 +362,7 @@
             // doNotResolveRadioButton
             // 
             this.doNotResolveRadioButton.Checked = true;
-            this.doNotResolveRadioButton.Location = new System.Drawing.Point(8, 141);
+            this.doNotResolveRadioButton.Location = new System.Drawing.Point(6, 219);
             this.doNotResolveRadioButton.Name = "doNotResolveRadioButton";
             this.doNotResolveRadioButton.Size = new System.Drawing.Size(229, 24);
             this.doNotResolveRadioButton.TabIndex = 29;
@@ -348,34 +370,27 @@
             this.doNotResolveRadioButton.Text = "Do not automatically resolve the Prediction";
             this.doNotResolveRadioButton.UseVisualStyleBackColor = true;
             // 
-            // label10
-            // 
-            this.label10.Location = new System.Drawing.Point(26, 68);
-            this.label10.Name = "label10";
-            this.label10.Size = new System.Drawing.Size(49, 18);
-            this.label10.TabIndex = 28;
-            this.label10.Text = "less than";
-            // 
             // radioButton6
             // 
-            this.radioButton6.Location = new System.Drawing.Point(8, 78);
+            this.radioButton6.Location = new System.Drawing.Point(6, 180);
             this.radioButton6.Name = "radioButton6";
-            this.radioButton6.Size = new System.Drawing.Size(18, 20);
+            this.radioButton6.Size = new System.Drawing.Size(117, 20);
             this.radioButton6.TabIndex = 24;
+            this.radioButton6.Text = "starts with less than";
             this.radioButton6.UseVisualStyleBackColor = true;
             // 
             // radioButton5
             // 
-            this.radioButton5.Location = new System.Drawing.Point(8, 40);
+            this.radioButton5.Location = new System.Drawing.Point(6, 154);
             this.radioButton5.Name = "radioButton5";
             this.radioButton5.Size = new System.Drawing.Size(129, 20);
             this.radioButton5.TabIndex = 1;
-            this.radioButton5.Text = "this Split starts ahead:";
+            this.radioButton5.Text = "starts ahead";
             this.radioButton5.UseVisualStyleBackColor = true;
             // 
             // radioButton4
             // 
-            this.radioButton4.Location = new System.Drawing.Point(8, 14);
+            this.radioButton4.Location = new System.Drawing.Point(6, 14);
             this.radioButton4.Name = "radioButton4";
             this.radioButton4.Size = new System.Drawing.Size(107, 20);
             this.radioButton4.TabIndex = 0;
@@ -419,11 +434,15 @@
             this.PerformLayout();
         }
 
+        private System.Windows.Forms.Label label9;
+
+        private System.Windows.Forms.RadioButton radioButton8;
+        private System.Windows.Forms.RadioButton radioButton9;
+
         private System.Windows.Forms.RadioButton radioButton7;
         private System.Windows.Forms.Label label11;
         private System.Windows.Forms.NumericUpDown numericUpDown3;
 
-        private System.Windows.Forms.Label label10;
         private System.Windows.Forms.RadioButton doNotResolveRadioButton;
 
         private System.Windows.Forms.RadioButton radioButton6;
@@ -441,7 +460,6 @@
         private System.Windows.Forms.GroupBox groupBox1;
         private System.Windows.Forms.RadioButton radioButton1;
 
-        private System.Windows.Forms.TextBox textBox7;
         private System.Windows.Forms.NumericUpDown numericUpDown2;
         private System.Windows.Forms.Label label8;
 
