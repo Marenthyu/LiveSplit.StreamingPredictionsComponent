@@ -31,45 +31,57 @@
             this.label1 = new System.Windows.Forms.Label();
             this.txtOAuthToken = new System.Windows.Forms.TextBox();
             this.getTokenBtn = new System.Windows.Forms.Button();
-            this.checkBox1 = new System.Windows.Forms.CheckBox();
+            this.cancelOnResetCheckBox = new System.Windows.Forms.CheckBox();
             this.label2 = new System.Windows.Forms.Label();
             this.label3 = new System.Windows.Forms.Label();
-            this.textBox1 = new System.Windows.Forms.TextBox();
+            this.yesOptionTextBox = new System.Windows.Forms.TextBox();
             this.label4 = new System.Windows.Forms.Label();
-            this.textBox2 = new System.Windows.Forms.TextBox();
+            this.noOptionTextBox = new System.Windows.Forms.TextBox();
             this.label5 = new System.Windows.Forms.Label();
-            this.textBox3 = new System.Windows.Forms.TextBox();
-            this.textBox4 = new System.Windows.Forms.TextBox();
-            this.textBox5 = new System.Windows.Forms.TextBox();
-            this.checkBox5 = new System.Windows.Forms.CheckBox();
-            this.numericUpDown1 = new System.Windows.Forms.NumericUpDown();
+            this.predictionTitleTextBox = new System.Windows.Forms.TextBox();
+            this.createOnSplitNameTextBox = new System.Windows.Forms.TextBox();
+            this.loclSplitNameTextBox = new System.Windows.Forms.TextBox();
+            this.lockOnSplitCheckBox = new System.Windows.Forms.CheckBox();
+            this.lockTimeInput = new System.Windows.Forms.NumericUpDown();
             this.label6 = new System.Windows.Forms.Label();
             this.label7 = new System.Windows.Forms.Label();
-            this.textBox6 = new System.Windows.Forms.TextBox();
-            this.numericUpDown2 = new System.Windows.Forms.NumericUpDown();
+            this.resolveSplitNameTextBox = new System.Windows.Forms.TextBox();
+            this.ResolveTimeInput = new System.Windows.Forms.NumericUpDown();
             this.label8 = new System.Windows.Forms.Label();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
             this.radioButton3 = new System.Windows.Forms.RadioButton();
-            this.radioButton2 = new System.Windows.Forms.RadioButton();
-            this.radioButton1 = new System.Windows.Forms.RadioButton();
+            this.createOnSplitRadio = new System.Windows.Forms.RadioButton();
+            this.createOnStartRadio = new System.Windows.Forms.RadioButton();
             this.groupBox2 = new System.Windows.Forms.GroupBox();
+            this.resolveOnBadSplitsRadio = new System.Windows.Forms.RadioButton();
+            this.resolveOnGoodSplitsRadio = new System.Windows.Forms.RadioButton();
+            this.resolveOnGoldRadio = new System.Windows.Forms.RadioButton();
+            this.groupBox3 = new System.Windows.Forms.GroupBox();
+            this.resolveOnAmountSplitNameTextBox = new System.Windows.Forms.TextBox();
+            this.resolveOnAmountSplitRadio = new System.Windows.Forms.RadioButton();
+            this.resolveOnAmountEndOfRunRadio = new System.Windows.Forms.RadioButton();
+            this.label14 = new System.Windows.Forms.Label();
+            this.resolveAmountInput = new System.Windows.Forms.NumericUpDown();
+            this.label13 = new System.Windows.Forms.Label();
             this.label12 = new System.Windows.Forms.Label();
             this.label10 = new System.Windows.Forms.Label();
             this.label9 = new System.Windows.Forms.Label();
-            this.radioButton9 = new System.Windows.Forms.RadioButton();
-            this.radioButton8 = new System.Windows.Forms.RadioButton();
-            this.radioButton7 = new System.Windows.Forms.RadioButton();
+            this.resolveOnSplitReachedRadio = new System.Windows.Forms.RadioButton();
+            this.resolveOnEndReachedRadio = new System.Windows.Forms.RadioButton();
+            this.resolveOnEndTimedRadio = new System.Windows.Forms.RadioButton();
             this.label11 = new System.Windows.Forms.Label();
-            this.numericUpDown3 = new System.Windows.Forms.NumericUpDown();
+            this.resolveEndTimeInput = new System.Windows.Forms.NumericUpDown();
             this.doNotResolveRadioButton = new System.Windows.Forms.RadioButton();
-            this.radioButton6 = new System.Windows.Forms.RadioButton();
-            this.radioButton5 = new System.Windows.Forms.RadioButton();
-            this.radioButton4 = new System.Windows.Forms.RadioButton();
-            ((System.ComponentModel.ISupportInitialize) (this.numericUpDown1)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize) (this.numericUpDown2)).BeginInit();
+            this.resolveOnSplitTimedRadio = new System.Windows.Forms.RadioButton();
+            this.resolveOnSplitRadio = new System.Windows.Forms.RadioButton();
+            this.resolveOnPBRadio = new System.Windows.Forms.RadioButton();
+            ((System.ComponentModel.ISupportInitialize) (this.lockTimeInput)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize) (this.ResolveTimeInput)).BeginInit();
             this.groupBox1.SuspendLayout();
             this.groupBox2.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize) (this.numericUpDown3)).BeginInit();
+            this.groupBox3.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize) (this.resolveAmountInput)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize) (this.resolveEndTimeInput)).BeginInit();
             this.SuspendLayout();
             // 
             // label1
@@ -99,14 +111,14 @@
             this.getTokenBtn.UseVisualStyleBackColor = true;
             this.getTokenBtn.Click += new System.EventHandler(this.getTokenBtn_Click);
             // 
-            // checkBox1
+            // cancelOnResetCheckBox
             // 
-            this.checkBox1.Location = new System.Drawing.Point(10, 315);
-            this.checkBox1.Name = "checkBox1";
-            this.checkBox1.Size = new System.Drawing.Size(439, 21);
-            this.checkBox1.TabIndex = 5;
-            this.checkBox1.Text = "Cancel Prediction on Reset (instead of resolving as \"No\") (This will refund point" + "s)";
-            this.checkBox1.UseVisualStyleBackColor = true;
+            this.cancelOnResetCheckBox.Location = new System.Drawing.Point(10, 315);
+            this.cancelOnResetCheckBox.Name = "cancelOnResetCheckBox";
+            this.cancelOnResetCheckBox.Size = new System.Drawing.Size(439, 21);
+            this.cancelOnResetCheckBox.TabIndex = 5;
+            this.cancelOnResetCheckBox.Text = "Cancel Prediction on Reset (instead of resolving as \"No\") (This will refund point" + "s)";
+            this.cancelOnResetCheckBox.UseVisualStyleBackColor = true;
             // 
             // label2
             // 
@@ -125,13 +137,13 @@
             this.label3.TabIndex = 9;
             this.label3.Text = "\"Yes\" Option Name:";
             // 
-            // textBox1
+            // yesOptionTextBox
             // 
-            this.textBox1.Location = new System.Drawing.Point(115, 30);
-            this.textBox1.MaxLength = 25;
-            this.textBox1.Name = "textBox1";
-            this.textBox1.Size = new System.Drawing.Size(233, 20);
-            this.textBox1.TabIndex = 10;
+            this.yesOptionTextBox.Location = new System.Drawing.Point(115, 30);
+            this.yesOptionTextBox.MaxLength = 25;
+            this.yesOptionTextBox.Name = "yesOptionTextBox";
+            this.yesOptionTextBox.Size = new System.Drawing.Size(233, 20);
+            this.yesOptionTextBox.TabIndex = 10;
             // 
             // label4
             // 
@@ -142,13 +154,13 @@
             this.label4.TabIndex = 11;
             this.label4.Text = "\"No\" Option Name:";
             // 
-            // textBox2
+            // noOptionTextBox
             // 
-            this.textBox2.Location = new System.Drawing.Point(115, 56);
-            this.textBox2.MaxLength = 25;
-            this.textBox2.Name = "textBox2";
-            this.textBox2.Size = new System.Drawing.Size(233, 20);
-            this.textBox2.TabIndex = 12;
+            this.noOptionTextBox.Location = new System.Drawing.Point(115, 56);
+            this.noOptionTextBox.MaxLength = 25;
+            this.noOptionTextBox.Name = "noOptionTextBox";
+            this.noOptionTextBox.Size = new System.Drawing.Size(233, 20);
+            this.noOptionTextBox.TabIndex = 12;
             // 
             // label5
             // 
@@ -159,46 +171,46 @@
             this.label5.TabIndex = 13;
             this.label5.Text = "Prediction Title:";
             // 
-            // textBox3
+            // predictionTitleTextBox
             // 
-            this.textBox3.Location = new System.Drawing.Point(115, 82);
-            this.textBox3.MaxLength = 45;
-            this.textBox3.Name = "textBox3";
-            this.textBox3.Size = new System.Drawing.Size(233, 20);
-            this.textBox3.TabIndex = 14;
+            this.predictionTitleTextBox.Location = new System.Drawing.Point(115, 82);
+            this.predictionTitleTextBox.MaxLength = 45;
+            this.predictionTitleTextBox.Name = "predictionTitleTextBox";
+            this.predictionTitleTextBox.Size = new System.Drawing.Size(233, 20);
+            this.predictionTitleTextBox.TabIndex = 14;
             // 
-            // textBox4
+            // createOnSplitNameTextBox
             // 
-            this.textBox4.Location = new System.Drawing.Point(116, 48);
-            this.textBox4.Name = "textBox4";
-            this.textBox4.Size = new System.Drawing.Size(317, 20);
-            this.textBox4.TabIndex = 16;
+            this.createOnSplitNameTextBox.Location = new System.Drawing.Point(105, 48);
+            this.createOnSplitNameTextBox.Name = "createOnSplitNameTextBox";
+            this.createOnSplitNameTextBox.Size = new System.Drawing.Size(328, 20);
+            this.createOnSplitNameTextBox.TabIndex = 16;
             // 
-            // textBox5
+            // loclSplitNameTextBox
             // 
-            this.textBox5.Location = new System.Drawing.Point(10, 289);
-            this.textBox5.Name = "textBox5";
-            this.textBox5.Size = new System.Drawing.Size(433, 20);
-            this.textBox5.TabIndex = 18;
+            this.loclSplitNameTextBox.Location = new System.Drawing.Point(10, 289);
+            this.loclSplitNameTextBox.Name = "loclSplitNameTextBox";
+            this.loclSplitNameTextBox.Size = new System.Drawing.Size(433, 20);
+            this.loclSplitNameTextBox.TabIndex = 18;
             // 
-            // checkBox5
+            // lockOnSplitCheckBox
             // 
-            this.checkBox5.Location = new System.Drawing.Point(10, 259);
-            this.checkBox5.Name = "checkBox5";
-            this.checkBox5.Size = new System.Drawing.Size(413, 24);
-            this.checkBox5.TabIndex = 17;
-            this.checkBox5.Text = "Lock Prediction when the following Text is in the Name of the current Split:";
-            this.checkBox5.UseVisualStyleBackColor = true;
+            this.lockOnSplitCheckBox.Location = new System.Drawing.Point(10, 259);
+            this.lockOnSplitCheckBox.Name = "lockOnSplitCheckBox";
+            this.lockOnSplitCheckBox.Size = new System.Drawing.Size(413, 24);
+            this.lockOnSplitCheckBox.TabIndex = 17;
+            this.lockOnSplitCheckBox.Text = "Lock Prediction when the following text is in the name of the current Split:";
+            this.lockOnSplitCheckBox.UseVisualStyleBackColor = true;
             // 
-            // numericUpDown1
+            // lockTimeInput
             // 
-            this.numericUpDown1.Location = new System.Drawing.Point(115, 108);
-            this.numericUpDown1.Maximum = new decimal(new int[] {1800, 0, 0, 0});
-            this.numericUpDown1.Minimum = new decimal(new int[] {1, 0, 0, 0});
-            this.numericUpDown1.Name = "numericUpDown1";
-            this.numericUpDown1.Size = new System.Drawing.Size(180, 20);
-            this.numericUpDown1.TabIndex = 19;
-            this.numericUpDown1.Value = new decimal(new int[] {600, 0, 0, 0});
+            this.lockTimeInput.Location = new System.Drawing.Point(115, 108);
+            this.lockTimeInput.Maximum = new decimal(new int[] {1800, 0, 0, 0});
+            this.lockTimeInput.Minimum = new decimal(new int[] {1, 0, 0, 0});
+            this.lockTimeInput.Name = "lockTimeInput";
+            this.lockTimeInput.Size = new System.Drawing.Size(180, 20);
+            this.lockTimeInput.TabIndex = 19;
+            this.lockTimeInput.Value = new decimal(new int[] {600, 0, 0, 0});
             // 
             // label6
             // 
@@ -218,22 +230,22 @@
             this.label7.TabIndex = 21;
             this.label7.Text = "seconds";
             // 
-            // textBox6
+            // resolveSplitNameTextBox
             // 
-            this.textBox6.Location = new System.Drawing.Point(77, 94);
-            this.textBox6.Name = "textBox6";
-            this.textBox6.Size = new System.Drawing.Size(356, 20);
-            this.textBox6.TabIndex = 23;
+            this.resolveSplitNameTextBox.Location = new System.Drawing.Point(77, 94);
+            this.resolveSplitNameTextBox.Name = "resolveSplitNameTextBox";
+            this.resolveSplitNameTextBox.Size = new System.Drawing.Size(356, 20);
+            this.resolveSplitNameTextBox.TabIndex = 23;
             // 
-            // numericUpDown2
+            // ResolveTimeInput
             // 
-            this.numericUpDown2.Location = new System.Drawing.Point(129, 170);
-            this.numericUpDown2.Maximum = new decimal(new int[] {3686400, 0, 0, 0});
-            this.numericUpDown2.Minimum = new decimal(new int[] {100000, 0, 0, -2147483648});
-            this.numericUpDown2.Name = "numericUpDown2";
-            this.numericUpDown2.Size = new System.Drawing.Size(56, 20);
-            this.numericUpDown2.TabIndex = 26;
-            this.numericUpDown2.Value = new decimal(new int[] {60, 0, 0, 0});
+            this.ResolveTimeInput.Location = new System.Drawing.Point(129, 170);
+            this.ResolveTimeInput.Maximum = new decimal(new int[] {3686400, 0, 0, 0});
+            this.ResolveTimeInput.Minimum = new decimal(new int[] {100000, 0, 0, -2147483648});
+            this.ResolveTimeInput.Name = "ResolveTimeInput";
+            this.ResolveTimeInput.Size = new System.Drawing.Size(56, 20);
+            this.ResolveTimeInput.TabIndex = 26;
+            this.ResolveTimeInput.Value = new decimal(new int[] {60, 0, 0, 0});
             // 
             // label8
             // 
@@ -246,15 +258,15 @@
             // groupBox1
             // 
             this.groupBox1.Controls.Add(this.radioButton3);
-            this.groupBox1.Controls.Add(this.radioButton2);
-            this.groupBox1.Controls.Add(this.radioButton1);
-            this.groupBox1.Controls.Add(this.textBox4);
+            this.groupBox1.Controls.Add(this.createOnSplitRadio);
+            this.groupBox1.Controls.Add(this.createOnStartRadio);
+            this.groupBox1.Controls.Add(this.createOnSplitNameTextBox);
             this.groupBox1.Location = new System.Drawing.Point(10, 150);
             this.groupBox1.Name = "groupBox1";
             this.groupBox1.Size = new System.Drawing.Size(439, 103);
             this.groupBox1.TabIndex = 29;
             this.groupBox1.TabStop = false;
-            this.groupBox1.Text = "Create Prediction When";
+            this.groupBox1.Text = "Create Prediction when";
             // 
             // radioButton3
             // 
@@ -267,47 +279,149 @@
             this.radioButton3.Text = "Do not automatically start a Prediction";
             this.radioButton3.UseVisualStyleBackColor = true;
             // 
-            // radioButton2
+            // createOnSplitRadio
             // 
-            this.radioButton2.Location = new System.Drawing.Point(8, 47);
-            this.radioButton2.Name = "radioButton2";
-            this.radioButton2.Size = new System.Drawing.Size(104, 20);
-            this.radioButton2.TabIndex = 17;
-            this.radioButton2.Text = "this Split starts:";
-            this.radioButton2.UseVisualStyleBackColor = true;
+            this.createOnSplitRadio.Location = new System.Drawing.Point(8, 47);
+            this.createOnSplitRadio.Name = "createOnSplitRadio";
+            this.createOnSplitRadio.Size = new System.Drawing.Size(95, 20);
+            this.createOnSplitRadio.TabIndex = 17;
+            this.createOnSplitRadio.Text = "this Split starts:";
+            this.createOnSplitRadio.UseVisualStyleBackColor = true;
             // 
-            // radioButton1
+            // createOnStartRadio
             // 
-            this.radioButton1.Location = new System.Drawing.Point(8, 17);
-            this.radioButton1.Name = "radioButton1";
-            this.radioButton1.Size = new System.Drawing.Size(104, 24);
-            this.radioButton1.TabIndex = 0;
-            this.radioButton1.Text = "the Timer starts";
-            this.radioButton1.UseVisualStyleBackColor = true;
+            this.createOnStartRadio.Location = new System.Drawing.Point(8, 17);
+            this.createOnStartRadio.Name = "createOnStartRadio";
+            this.createOnStartRadio.Size = new System.Drawing.Size(104, 24);
+            this.createOnStartRadio.TabIndex = 0;
+            this.createOnStartRadio.Text = "the Timer starts";
+            this.createOnStartRadio.UseVisualStyleBackColor = true;
             // 
             // groupBox2
             // 
+            this.groupBox2.Controls.Add(this.resolveOnBadSplitsRadio);
+            this.groupBox2.Controls.Add(this.resolveOnGoodSplitsRadio);
+            this.groupBox2.Controls.Add(this.resolveOnGoldRadio);
+            this.groupBox2.Controls.Add(this.groupBox3);
+            this.groupBox2.Controls.Add(this.label14);
+            this.groupBox2.Controls.Add(this.resolveAmountInput);
+            this.groupBox2.Controls.Add(this.label13);
             this.groupBox2.Controls.Add(this.label12);
             this.groupBox2.Controls.Add(this.label10);
             this.groupBox2.Controls.Add(this.label9);
-            this.groupBox2.Controls.Add(this.radioButton9);
-            this.groupBox2.Controls.Add(this.radioButton8);
-            this.groupBox2.Controls.Add(this.radioButton7);
+            this.groupBox2.Controls.Add(this.resolveOnSplitReachedRadio);
+            this.groupBox2.Controls.Add(this.resolveOnEndReachedRadio);
+            this.groupBox2.Controls.Add(this.resolveOnEndTimedRadio);
             this.groupBox2.Controls.Add(this.label11);
-            this.groupBox2.Controls.Add(this.numericUpDown3);
+            this.groupBox2.Controls.Add(this.resolveEndTimeInput);
             this.groupBox2.Controls.Add(this.doNotResolveRadioButton);
-            this.groupBox2.Controls.Add(this.radioButton6);
-            this.groupBox2.Controls.Add(this.radioButton5);
-            this.groupBox2.Controls.Add(this.radioButton4);
+            this.groupBox2.Controls.Add(this.resolveOnSplitTimedRadio);
+            this.groupBox2.Controls.Add(this.resolveOnSplitRadio);
+            this.groupBox2.Controls.Add(this.resolveOnPBRadio);
             this.groupBox2.Controls.Add(this.label8);
-            this.groupBox2.Controls.Add(this.textBox6);
-            this.groupBox2.Controls.Add(this.numericUpDown2);
+            this.groupBox2.Controls.Add(this.resolveSplitNameTextBox);
+            this.groupBox2.Controls.Add(this.ResolveTimeInput);
             this.groupBox2.Location = new System.Drawing.Point(10, 342);
             this.groupBox2.Name = "groupBox2";
-            this.groupBox2.Size = new System.Drawing.Size(439, 225);
+            this.groupBox2.Size = new System.Drawing.Size(439, 439);
             this.groupBox2.TabIndex = 30;
             this.groupBox2.TabStop = false;
-            this.groupBox2.Text = "Resolve Prediction When";
+            this.groupBox2.Text = "Resolve Prediction when";
+            // 
+            // resolveOnBadSplitsRadio
+            // 
+            this.resolveOnBadSplitsRadio.Location = new System.Drawing.Point(6, 285);
+            this.resolveOnBadSplitsRadio.Name = "resolveOnBadSplitsRadio";
+            this.resolveOnBadSplitsRadio.Size = new System.Drawing.Size(150, 24);
+            this.resolveOnBadSplitsRadio.TabIndex = 45;
+            this.resolveOnBadSplitsRadio.TabStop = true;
+            this.resolveOnBadSplitsRadio.Text = "Splits lost Time";
+            this.resolveOnBadSplitsRadio.UseVisualStyleBackColor = true;
+            // 
+            // resolveOnGoodSplitsRadio
+            // 
+            this.resolveOnGoodSplitsRadio.Location = new System.Drawing.Point(6, 255);
+            this.resolveOnGoodSplitsRadio.Name = "resolveOnGoodSplitsRadio";
+            this.resolveOnGoodSplitsRadio.Size = new System.Drawing.Size(150, 24);
+            this.resolveOnGoodSplitsRadio.TabIndex = 44;
+            this.resolveOnGoodSplitsRadio.TabStop = true;
+            this.resolveOnGoodSplitsRadio.Text = "Splits saved Time";
+            this.resolveOnGoodSplitsRadio.UseVisualStyleBackColor = true;
+            // 
+            // resolveOnGoldRadio
+            // 
+            this.resolveOnGoldRadio.Location = new System.Drawing.Point(6, 225);
+            this.resolveOnGoldRadio.Name = "resolveOnGoldRadio";
+            this.resolveOnGoldRadio.Size = new System.Drawing.Size(191, 24);
+            this.resolveOnGoldRadio.TabIndex = 43;
+            this.resolveOnGoldRadio.TabStop = true;
+            this.resolveOnGoldRadio.Text = "Best Splits were achieved (or tied)";
+            this.resolveOnGoldRadio.UseVisualStyleBackColor = true;
+            // 
+            // groupBox3
+            // 
+            this.groupBox3.Controls.Add(this.resolveOnAmountSplitNameTextBox);
+            this.groupBox3.Controls.Add(this.resolveOnAmountSplitRadio);
+            this.groupBox3.Controls.Add(this.resolveOnAmountEndOfRunRadio);
+            this.groupBox3.Location = new System.Drawing.Point(6, 315);
+            this.groupBox3.Name = "groupBox3";
+            this.groupBox3.Size = new System.Drawing.Size(427, 87);
+            this.groupBox3.TabIndex = 42;
+            this.groupBox3.TabStop = false;
+            this.groupBox3.Text = "by";
+            // 
+            // resolveOnAmountSplitNameTextBox
+            // 
+            this.resolveOnAmountSplitNameTextBox.Location = new System.Drawing.Point(123, 52);
+            this.resolveOnAmountSplitNameTextBox.Name = "resolveOnAmountSplitNameTextBox";
+            this.resolveOnAmountSplitNameTextBox.Size = new System.Drawing.Size(294, 20);
+            this.resolveOnAmountSplitNameTextBox.TabIndex = 43;
+            // 
+            // resolveOnAmountSplitRadio
+            // 
+            this.resolveOnAmountSplitRadio.Location = new System.Drawing.Point(6, 49);
+            this.resolveOnAmountSplitRadio.Name = "resolveOnAmountSplitRadio";
+            this.resolveOnAmountSplitRadio.Size = new System.Drawing.Size(123, 24);
+            this.resolveOnAmountSplitRadio.TabIndex = 1;
+            this.resolveOnAmountSplitRadio.Text = "the start of this Split:";
+            this.resolveOnAmountSplitRadio.UseVisualStyleBackColor = true;
+            // 
+            // resolveOnAmountEndOfRunRadio
+            // 
+            this.resolveOnAmountEndOfRunRadio.Checked = true;
+            this.resolveOnAmountEndOfRunRadio.Location = new System.Drawing.Point(6, 19);
+            this.resolveOnAmountEndOfRunRadio.Name = "resolveOnAmountEndOfRunRadio";
+            this.resolveOnAmountEndOfRunRadio.Size = new System.Drawing.Size(123, 24);
+            this.resolveOnAmountEndOfRunRadio.TabIndex = 0;
+            this.resolveOnAmountEndOfRunRadio.TabStop = true;
+            this.resolveOnAmountEndOfRunRadio.Text = "the end of the Run";
+            this.resolveOnAmountEndOfRunRadio.UseVisualStyleBackColor = true;
+            // 
+            // label14
+            // 
+            this.label14.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
+            this.label14.Location = new System.Drawing.Point(0, 405);
+            this.label14.Name = "label14";
+            this.label14.Size = new System.Drawing.Size(439, 2);
+            this.label14.TabIndex = 41;
+            this.label14.Text = "label14";
+            // 
+            // resolveAmountInput
+            // 
+            this.resolveAmountInput.Location = new System.Drawing.Point(116, 199);
+            this.resolveAmountInput.Maximum = new decimal(new int[] {10000, 0, 0, 0});
+            this.resolveAmountInput.Name = "resolveAmountInput";
+            this.resolveAmountInput.Size = new System.Drawing.Size(317, 20);
+            this.resolveAmountInput.TabIndex = 40;
+            this.resolveAmountInput.Value = new decimal(new int[] {1, 0, 0, 0});
+            // 
+            // label13
+            // 
+            this.label13.Location = new System.Drawing.Point(6, 201);
+            this.label13.Name = "label13";
+            this.label13.Size = new System.Drawing.Size(104, 18);
+            this.label13.TabIndex = 39;
+            this.label13.Text = "... at least this many:";
             // 
             // label12
             // 
@@ -335,33 +449,33 @@
             this.label9.TabIndex = 35;
             this.label9.Text = "... this Split:";
             // 
-            // radioButton9
+            // resolveOnSplitReachedRadio
             // 
-            this.radioButton9.Location = new System.Drawing.Point(6, 118);
-            this.radioButton9.Name = "radioButton9";
-            this.radioButton9.Size = new System.Drawing.Size(129, 20);
-            this.radioButton9.TabIndex = 34;
-            this.radioButton9.Text = "starts";
-            this.radioButton9.UseVisualStyleBackColor = true;
+            this.resolveOnSplitReachedRadio.Location = new System.Drawing.Point(6, 118);
+            this.resolveOnSplitReachedRadio.Name = "resolveOnSplitReachedRadio";
+            this.resolveOnSplitReachedRadio.Size = new System.Drawing.Size(129, 20);
+            this.resolveOnSplitReachedRadio.TabIndex = 34;
+            this.resolveOnSplitReachedRadio.Text = "starts";
+            this.resolveOnSplitReachedRadio.UseVisualStyleBackColor = true;
             // 
-            // radioButton8
+            // resolveOnEndReachedRadio
             // 
-            this.radioButton8.Location = new System.Drawing.Point(6, 40);
-            this.radioButton8.Name = "radioButton8";
-            this.radioButton8.Size = new System.Drawing.Size(104, 20);
-            this.radioButton8.TabIndex = 33;
-            this.radioButton8.TabStop = true;
-            this.radioButton8.Text = "the Run finishes";
-            this.radioButton8.UseVisualStyleBackColor = true;
+            this.resolveOnEndReachedRadio.Location = new System.Drawing.Point(6, 40);
+            this.resolveOnEndReachedRadio.Name = "resolveOnEndReachedRadio";
+            this.resolveOnEndReachedRadio.Size = new System.Drawing.Size(104, 20);
+            this.resolveOnEndReachedRadio.TabIndex = 33;
+            this.resolveOnEndReachedRadio.TabStop = true;
+            this.resolveOnEndReachedRadio.Text = "the Run finishes";
+            this.resolveOnEndReachedRadio.UseVisualStyleBackColor = true;
             // 
-            // radioButton7
+            // resolveOnEndTimedRadio
             // 
-            this.radioButton7.Location = new System.Drawing.Point(6, 66);
-            this.radioButton7.Name = "radioButton7";
-            this.radioButton7.Size = new System.Drawing.Size(168, 20);
-            this.radioButton7.TabIndex = 30;
-            this.radioButton7.Text = "the Run finishes with less than";
-            this.radioButton7.UseVisualStyleBackColor = true;
+            this.resolveOnEndTimedRadio.Location = new System.Drawing.Point(6, 66);
+            this.resolveOnEndTimedRadio.Name = "resolveOnEndTimedRadio";
+            this.resolveOnEndTimedRadio.Size = new System.Drawing.Size(168, 20);
+            this.resolveOnEndTimedRadio.TabIndex = 30;
+            this.resolveOnEndTimedRadio.Text = "the Run finishes with less than";
+            this.resolveOnEndTimedRadio.UseVisualStyleBackColor = true;
             // 
             // label11
             // 
@@ -371,20 +485,20 @@
             this.label11.TabIndex = 32;
             this.label11.Text = "seconds on the Timer";
             // 
-            // numericUpDown3
+            // resolveEndTimeInput
             // 
-            this.numericUpDown3.Location = new System.Drawing.Point(180, 66);
-            this.numericUpDown3.Maximum = new decimal(new int[] {3686400, 0, 0, 0});
-            this.numericUpDown3.Minimum = new decimal(new int[] {100000, 0, 0, -2147483648});
-            this.numericUpDown3.Name = "numericUpDown3";
-            this.numericUpDown3.Size = new System.Drawing.Size(56, 20);
-            this.numericUpDown3.TabIndex = 31;
-            this.numericUpDown3.Value = new decimal(new int[] {60, 0, 0, 0});
+            this.resolveEndTimeInput.Location = new System.Drawing.Point(180, 66);
+            this.resolveEndTimeInput.Maximum = new decimal(new int[] {3686400, 0, 0, 0});
+            this.resolveEndTimeInput.Minimum = new decimal(new int[] {100000, 0, 0, -2147483648});
+            this.resolveEndTimeInput.Name = "resolveEndTimeInput";
+            this.resolveEndTimeInput.Size = new System.Drawing.Size(56, 20);
+            this.resolveEndTimeInput.TabIndex = 31;
+            this.resolveEndTimeInput.Value = new decimal(new int[] {60, 0, 0, 0});
             // 
             // doNotResolveRadioButton
             // 
             this.doNotResolveRadioButton.Checked = true;
-            this.doNotResolveRadioButton.Location = new System.Drawing.Point(6, 198);
+            this.doNotResolveRadioButton.Location = new System.Drawing.Point(8, 410);
             this.doNotResolveRadioButton.Name = "doNotResolveRadioButton";
             this.doNotResolveRadioButton.Size = new System.Drawing.Size(229, 24);
             this.doNotResolveRadioButton.TabIndex = 29;
@@ -392,32 +506,32 @@
             this.doNotResolveRadioButton.Text = "Do not automatically resolve the Prediction";
             this.doNotResolveRadioButton.UseVisualStyleBackColor = true;
             // 
-            // radioButton6
+            // resolveOnSplitTimedRadio
             // 
-            this.radioButton6.Location = new System.Drawing.Point(6, 170);
-            this.radioButton6.Name = "radioButton6";
-            this.radioButton6.Size = new System.Drawing.Size(117, 20);
-            this.radioButton6.TabIndex = 24;
-            this.radioButton6.Text = "starts with less than";
-            this.radioButton6.UseVisualStyleBackColor = true;
+            this.resolveOnSplitTimedRadio.Location = new System.Drawing.Point(6, 170);
+            this.resolveOnSplitTimedRadio.Name = "resolveOnSplitTimedRadio";
+            this.resolveOnSplitTimedRadio.Size = new System.Drawing.Size(117, 20);
+            this.resolveOnSplitTimedRadio.TabIndex = 24;
+            this.resolveOnSplitTimedRadio.Text = "starts with less than";
+            this.resolveOnSplitTimedRadio.UseVisualStyleBackColor = true;
             // 
-            // radioButton5
+            // resolveOnSplitRadio
             // 
-            this.radioButton5.Location = new System.Drawing.Point(6, 144);
-            this.radioButton5.Name = "radioButton5";
-            this.radioButton5.Size = new System.Drawing.Size(129, 20);
-            this.radioButton5.TabIndex = 1;
-            this.radioButton5.Text = "starts ahead";
-            this.radioButton5.UseVisualStyleBackColor = true;
+            this.resolveOnSplitRadio.Location = new System.Drawing.Point(6, 144);
+            this.resolveOnSplitRadio.Name = "resolveOnSplitRadio";
+            this.resolveOnSplitRadio.Size = new System.Drawing.Size(129, 20);
+            this.resolveOnSplitRadio.TabIndex = 1;
+            this.resolveOnSplitRadio.Text = "starts ahead";
+            this.resolveOnSplitRadio.UseVisualStyleBackColor = true;
             // 
-            // radioButton4
+            // resolveOnPBRadio
             // 
-            this.radioButton4.Location = new System.Drawing.Point(6, 14);
-            this.radioButton4.Name = "radioButton4";
-            this.radioButton4.Size = new System.Drawing.Size(107, 20);
-            this.radioButton4.TabIndex = 0;
-            this.radioButton4.Text = "the Run PB\'s";
-            this.radioButton4.UseVisualStyleBackColor = true;
+            this.resolveOnPBRadio.Location = new System.Drawing.Point(6, 14);
+            this.resolveOnPBRadio.Name = "resolveOnPBRadio";
+            this.resolveOnPBRadio.Size = new System.Drawing.Size(107, 20);
+            this.resolveOnPBRadio.TabIndex = 0;
+            this.resolveOnPBRadio.Text = "the Run PB\'s";
+            this.resolveOnPBRadio.UseVisualStyleBackColor = true;
             // 
             // StreamingPredictionsSettings
             // 
@@ -428,33 +542,49 @@
             this.Controls.Add(this.groupBox1);
             this.Controls.Add(this.label7);
             this.Controls.Add(this.label6);
-            this.Controls.Add(this.numericUpDown1);
-            this.Controls.Add(this.textBox5);
-            this.Controls.Add(this.checkBox5);
+            this.Controls.Add(this.lockTimeInput);
+            this.Controls.Add(this.loclSplitNameTextBox);
+            this.Controls.Add(this.lockOnSplitCheckBox);
             this.Controls.Add(this.label5);
-            this.Controls.Add(this.textBox3);
+            this.Controls.Add(this.predictionTitleTextBox);
             this.Controls.Add(this.label4);
-            this.Controls.Add(this.textBox2);
+            this.Controls.Add(this.noOptionTextBox);
             this.Controls.Add(this.label3);
-            this.Controls.Add(this.textBox1);
+            this.Controls.Add(this.yesOptionTextBox);
             this.Controls.Add(this.label2);
-            this.Controls.Add(this.checkBox1);
+            this.Controls.Add(this.cancelOnResetCheckBox);
             this.Controls.Add(this.getTokenBtn);
             this.Controls.Add(this.label1);
             this.Controls.Add(this.txtOAuthToken);
             this.Name = "StreamingPredictionsSettings";
             this.Padding = new System.Windows.Forms.Padding(7);
-            this.Size = new System.Drawing.Size(457, 574);
-            ((System.ComponentModel.ISupportInitialize) (this.numericUpDown1)).EndInit();
-            ((System.ComponentModel.ISupportInitialize) (this.numericUpDown2)).EndInit();
+            this.Size = new System.Drawing.Size(457, 785);
+            ((System.ComponentModel.ISupportInitialize) (this.lockTimeInput)).EndInit();
+            ((System.ComponentModel.ISupportInitialize) (this.ResolveTimeInput)).EndInit();
             this.groupBox1.ResumeLayout(false);
             this.groupBox1.PerformLayout();
             this.groupBox2.ResumeLayout(false);
             this.groupBox2.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize) (this.numericUpDown3)).EndInit();
+            this.groupBox3.ResumeLayout(false);
+            this.groupBox3.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize) (this.resolveAmountInput)).EndInit();
+            ((System.ComponentModel.ISupportInitialize) (this.resolveEndTimeInput)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
         }
+
+        private System.Windows.Forms.TextBox resolveOnAmountSplitNameTextBox;
+        private System.Windows.Forms.RadioButton resolveOnGoldRadio;
+        private System.Windows.Forms.RadioButton resolveOnGoodSplitsRadio;
+        private System.Windows.Forms.RadioButton resolveOnBadSplitsRadio;
+
+        private System.Windows.Forms.GroupBox groupBox3;
+        private System.Windows.Forms.RadioButton resolveOnAmountEndOfRunRadio;
+        private System.Windows.Forms.RadioButton resolveOnAmountSplitRadio;
+
+        private System.Windows.Forms.Label label13;
+        private System.Windows.Forms.NumericUpDown resolveAmountInput;
+        private System.Windows.Forms.Label label14;
 
         private System.Windows.Forms.Label label12;
 
@@ -462,58 +592,58 @@
 
         private System.Windows.Forms.Label label9;
 
-        private System.Windows.Forms.RadioButton radioButton8;
-        private System.Windows.Forms.RadioButton radioButton9;
+        private System.Windows.Forms.RadioButton resolveOnEndReachedRadio;
+        private System.Windows.Forms.RadioButton resolveOnSplitReachedRadio;
 
-        private System.Windows.Forms.RadioButton radioButton7;
+        private System.Windows.Forms.RadioButton resolveOnEndTimedRadio;
         private System.Windows.Forms.Label label11;
-        private System.Windows.Forms.NumericUpDown numericUpDown3;
+        private System.Windows.Forms.NumericUpDown resolveEndTimeInput;
 
         private System.Windows.Forms.RadioButton doNotResolveRadioButton;
 
-        private System.Windows.Forms.RadioButton radioButton6;
+        private System.Windows.Forms.RadioButton resolveOnSplitTimedRadio;
 
-        private System.Windows.Forms.RadioButton radioButton5;
+        private System.Windows.Forms.RadioButton resolveOnSplitRadio;
 
-        private System.Windows.Forms.RadioButton radioButton4;
+        private System.Windows.Forms.RadioButton resolveOnPBRadio;
 
         private System.Windows.Forms.GroupBox groupBox2;
 
         private System.Windows.Forms.RadioButton radioButton3;
 
-        private System.Windows.Forms.RadioButton radioButton2;
+        private System.Windows.Forms.RadioButton createOnSplitRadio;
 
         private System.Windows.Forms.GroupBox groupBox1;
-        private System.Windows.Forms.RadioButton radioButton1;
+        private System.Windows.Forms.RadioButton createOnStartRadio;
 
-        private System.Windows.Forms.NumericUpDown numericUpDown2;
+        private System.Windows.Forms.NumericUpDown ResolveTimeInput;
         private System.Windows.Forms.Label label8;
 
-        private System.Windows.Forms.TextBox textBox6;
+        private System.Windows.Forms.TextBox resolveSplitNameTextBox;
 
         private System.Windows.Forms.Label label7;
 
         private System.Windows.Forms.Label label6;
 
-        private System.Windows.Forms.NumericUpDown numericUpDown1;
+        private System.Windows.Forms.NumericUpDown lockTimeInput;
 
-        private System.Windows.Forms.TextBox textBox5;
-        private System.Windows.Forms.CheckBox checkBox5;
+        private System.Windows.Forms.TextBox loclSplitNameTextBox;
+        private System.Windows.Forms.CheckBox lockOnSplitCheckBox;
 
-        private System.Windows.Forms.TextBox textBox4;
+        private System.Windows.Forms.TextBox createOnSplitNameTextBox;
 
         private System.Windows.Forms.Label label5;
-        private System.Windows.Forms.TextBox textBox3;
+        private System.Windows.Forms.TextBox predictionTitleTextBox;
 
         private System.Windows.Forms.Label label4;
-        private System.Windows.Forms.TextBox textBox2;
+        private System.Windows.Forms.TextBox noOptionTextBox;
 
         private System.Windows.Forms.Label label3;
-        private System.Windows.Forms.TextBox textBox1;
+        private System.Windows.Forms.TextBox yesOptionTextBox;
 
         private System.Windows.Forms.Label label2;
 
-        private System.Windows.Forms.CheckBox checkBox1;
+        private System.Windows.Forms.CheckBox cancelOnResetCheckBox;
 
         private System.Windows.Forms.Button getTokenBtn;
 

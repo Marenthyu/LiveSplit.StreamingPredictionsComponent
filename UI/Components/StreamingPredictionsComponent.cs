@@ -107,12 +107,18 @@ namespace LiveSplit.UI.Components
                                     State.Run.Last().PersonalBestSplitTime[State.CurrentTimingMethod];
                         ResolveCurrentPrediction(isPB);
                     }
-
-                    if (Settings.ResolveOnEndTimed)
+                    else if (Settings.ResolveOnEndTimed)
                     {
                         var wasFastEnough = State.CurrentTime[State.CurrentTimingMethod].Value <
                                             TimeSpan.FromSeconds(Settings.ResolveEndTime);
                         ResolveCurrentPrediction(wasFastEnough);
+                    }
+                    else if (Settings.ResolveOnAmountEndOfRun && (Settings.ResolveOnGoldSplits ||
+                                                                  Settings.ResolveOnGoodSplits ||
+                                                                  Settings.ResolveOnBadSplits))
+                    {
+                        var segments = State.Run;
+                        ResolveForCount(segments);
                     }
                 }
                 else
@@ -135,8 +141,7 @@ namespace LiveSplit.UI.Components
                         {
                             ResolveCurrentPrediction(true);
                         }
-
-                        if (Settings.ResolveOnSplit)
+                        else if (Settings.ResolveOnSplit)
                         {
                             var splitIndex = State.CurrentSplitIndex - 1;
                             var timeDifference = State.Run[splitIndex].SplitTime[State.CurrentTimingMethod] -
@@ -145,19 +150,67 @@ namespace LiveSplit.UI.Components
                             var ahead = timeDifference < TimeSpan.Zero;
                             ResolveCurrentPrediction(ahead);
                         }
-
-                        if (Settings.ResolveOnSplitTimed)
+                        else if (Settings.ResolveOnSplitTimed)
                         {
                             var wasFastEnough = State.CurrentTime[State.CurrentTimingMethod].Value <
                                                 TimeSpan.FromSeconds(Settings.ResolveTime);
                             ResolveCurrentPrediction(wasFastEnough);
                         }
                     }
+
+                    if (Settings.ResolveOnAmountStartOfSplit &&
+                        State.CurrentSplit.Name.Contains(Settings.ResolveOnAmountSplitName))
+                    {
+                        ResolveForCount(State.Run);
+                    }
                 }
             }
             catch (Exception ex)
             {
                 Log.Error(ex);
+            }
+        }
+
+        private void ResolveForCount(IRun run)
+        {
+            int gold = 0, good = 0, bad = 0;
+            foreach (ISegment segment in run)
+            {
+                var hasTime = segment.SplitTime[State.CurrentTimingMethod] != null;
+                if (!hasTime)
+                {
+                    continue;
+                }
+                
+                var wasGold = LiveSplitStateHelper.CheckBestSegment(State, run.IndexOf(segment), State.CurrentTimingMethod);
+                var delta = LiveSplitStateHelper.GetPreviousSegmentDelta(State, run.IndexOf(segment),
+                    State.CurrentComparison, State.CurrentTimingMethod);
+                if (wasGold)
+                {
+                    gold++;
+                }
+
+                if (delta < TimeSpan.Zero)
+                {
+                    good++;
+                }
+                else
+                {
+                    bad++;
+                }
+            }
+
+            if (Settings.ResolveOnGoldSplits)
+            {
+                ResolveCurrentPrediction(gold >= Settings.ResolveOnAmount);
+            }
+            else if (Settings.ResolveOnGoodSplits)
+            {
+                ResolveCurrentPrediction(good >= Settings.ResolveOnAmount);
+            }
+            else if (Settings.ResolveOnBadSplits)
+            {
+                ResolveCurrentPrediction(bad >= Settings.ResolveOnAmount);
             }
         }
 
