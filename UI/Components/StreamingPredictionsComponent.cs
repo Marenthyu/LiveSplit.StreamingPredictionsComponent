@@ -107,6 +107,13 @@ namespace LiveSplit.UI.Components
                                     State.Run.Last().PersonalBestSplitTime[State.CurrentTimingMethod];
                         ResolveCurrentPrediction(isPB);
                     }
+
+                    if (Settings.ResolveOnEndTimed)
+                    {
+                        var wasFastEnough = State.CurrentTime[State.CurrentTimingMethod].Value <
+                                            TimeSpan.FromSeconds(Settings.ResolveEndTime);
+                        ResolveCurrentPrediction(wasFastEnough);
+                    }
                 }
                 else
                 {

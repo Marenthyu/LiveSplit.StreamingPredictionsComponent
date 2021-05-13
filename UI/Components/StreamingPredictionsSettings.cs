@@ -76,6 +76,12 @@ namespace LiveSplit.UI.Components
             get => _resolveTime;
             set => _resolveTime = value;
         }
+        
+        public int ResolveEndTime
+        {
+            get => _resolveEndTime;
+            set => _resolveEndTime = value;
+        }
 
         public bool CancelOnReset
         {
@@ -106,6 +112,12 @@ namespace LiveSplit.UI.Components
         {
             get => _resolveOnEndOfRun;
             set => _resolveOnEndOfRun = value;
+        }
+        
+        public bool ResolveOnEndTimed
+        {
+            get => _resolveOnEndTimed;
+            set => _resolveOnEndTimed = value;
         }
 
         public bool ResolveOnSplit
@@ -151,6 +163,7 @@ namespace LiveSplit.UI.Components
         private static string _userName = "";
         private int _lockTime = 600;
         private int _resolveTime = 60;
+        private int _resolveEndTime = 60;
         private static bool _cancelOnReset = false;
         private static bool _createOnStart = true;
         private static bool _createOnSplit = false;
@@ -158,6 +171,7 @@ namespace LiveSplit.UI.Components
         private static bool _resolveOnEndOfRun = true;
         private static bool _resolveOnSplit = false;
         private static bool _resolveOnSplitTimed = false;
+        private static bool _resolveOnEndTimed = false;
 
         private static HttpListener _listener;
         private static bool isListening = false;
@@ -185,6 +199,7 @@ namespace LiveSplit.UI.Components
             LockOnSplit = false;
             ResolveOnSplit = false;
             ResolveOnSplitTimed = false;
+            ResolveOnEndTimed = false;
             //for (int i = 0; i < WaveOut.DeviceCount; ++i)
             //  cbOutputDevice.Items.Add(WaveOut.GetCapabilities(i));
             txtOAuthToken.DataBindings.Add("Text", this, "OAuthToken");
@@ -197,6 +212,7 @@ namespace LiveSplit.UI.Components
             textBox7.DataBindings.Add("Text", this, "ResolveSplitTimedName");
             numericUpDown1.DataBindings.Add("Value", this, "LockTime");
             numericUpDown2.DataBindings.Add("Value", this, "ResolveTime");
+            numericUpDown3.DataBindings.Add("Value", this, "ResolveEndTime");
             checkBox1.DataBindings.Add("Checked", this, "CancelOnReset");
             //radioButton4.DataBindings.Add("Checked", this, "ResolveOnEndOfRun");
             //radioButton1.DataBindings.Add("Checked", this, "CreateOnStart", true, DataSourceUpdateMode.OnPropertyChanged);
@@ -206,6 +222,7 @@ namespace LiveSplit.UI.Components
             radioButton4.CheckedChanged += OnChange;
             radioButton5.CheckedChanged += OnChange;
             radioButton6.CheckedChanged += OnChange;
+            radioButton7.CheckedChanged += OnChange;
             checkBox5.DataBindings.Add("Checked", this, "LockOnSplit");
             //radioButton5.DataBindings.Add("Checked", this, "ResolveOnSplit");
             //radioButton6.DataBindings.Add("Checked", this, "ResolveOnSplitTimed");
@@ -229,6 +246,9 @@ namespace LiveSplit.UI.Components
             } else if (sender == radioButton6)
             {
                 ResolveOnSplitTimed = ((RadioButton) sender).Checked;
+            } else if (sender == radioButton7)
+            {
+                ResolveOnEndTimed = ((RadioButton) sender).Checked;
             }
         }
         
@@ -251,15 +271,18 @@ namespace LiveSplit.UI.Components
             LockOnSplit = SettingsHelper.ParseBool(element["LockOnSplit"], false);
             ResolveOnSplit = SettingsHelper.ParseBool(element["ResolveOnSplit"], false);
             ResolveOnSplitTimed = SettingsHelper.ParseBool(element["ResolveOnSplitTimed"], false);
+            ResolveOnEndTimed = SettingsHelper.ParseBool(element["ResolveOnEndTimed"], false);
             LockTime = SettingsHelper.ParseInt(element["LockTime"], 600);
             ResolveTime = SettingsHelper.ParseInt(element["ResolveTime"], 60);
+            ResolveEndTime = SettingsHelper.ParseInt(element["ResolveEndTime"], 60);
             radioButton1.Checked = CreateOnStart;
             radioButton2.Checked = CreateOnSplit;
             radioButton3.Checked = !(CreateOnSplit || CreateOnStart);
             radioButton4.Checked = ResolveOnEndOfRun;
             radioButton5.Checked = ResolveOnSplit;
             radioButton6.Checked = ResolveOnSplitTimed;
-            radioButton7.Checked = !(ResolveOnEndOfRun || ResolveOnSplit || ResolveOnSplitTimed);
+            radioButton7.Checked = ResolveOnEndTimed;
+            doNotResolveRadioButton.Checked = !(ResolveOnEndOfRun || ResolveOnSplit || ResolveOnSplitTimed || ResolveOnEndTimed);
             validateToken().Wait();
         }
 
@@ -277,7 +300,7 @@ namespace LiveSplit.UI.Components
 
         private int CreateSettingsNode(XmlDocument document, XmlElement parent)
         {
-            return SettingsHelper.CreateSetting(document, parent, "Version", "1.8") ^
+            return SettingsHelper.CreateSetting(document, parent, "Version", "2.0") ^
                    SettingsHelper.CreateSetting(document, parent, "OAuthToken", OAuthToken) ^
                    SettingsHelper.CreateSetting(document, parent, "YesOptionName", YesOptionName) ^
                    SettingsHelper.CreateSetting(document, parent, "NoOptionName", NoOptionName) ^
@@ -288,13 +311,15 @@ namespace LiveSplit.UI.Components
                    SettingsHelper.CreateSetting(document, parent, "ResolveSplitTimedName", ResolveSplitTimedName) ^
                    SettingsHelper.CreateSetting(document, parent, "LockTime", LockTime) ^
                    SettingsHelper.CreateSetting(document, parent, "ResolveTime", ResolveTime) ^
+                   SettingsHelper.CreateSetting(document, parent, "ResolveEndTime", ResolveEndTime) ^
                    SettingsHelper.CreateSetting(document, parent, "CancelOnReset", CancelOnReset) ^
                    SettingsHelper.CreateSetting(document, parent, "CreateOnStart", CreateOnStart) ^
                    SettingsHelper.CreateSetting(document, parent, "CreateOnSplit", CreateOnSplit) ^
                    SettingsHelper.CreateSetting(document, parent, "LockOnSplit", LockOnSplit) ^
                    SettingsHelper.CreateSetting(document, parent, "ResolveOnEndOfRun", ResolveOnEndOfRun) ^
                    SettingsHelper.CreateSetting(document, parent, "ResolveOnSplit", ResolveOnSplit) ^
-                   SettingsHelper.CreateSetting(document, parent, "ResolveOnSplitTimed", ResolveOnSplitTimed);
+                   SettingsHelper.CreateSetting(document, parent, "ResolveOnSplitTimed", ResolveOnSplitTimed) ^
+                   SettingsHelper.CreateSetting(document, parent, "ResolveOnEndTimed", ResolveOnEndTimed);
         }
 
 #pragma warning disable 1998

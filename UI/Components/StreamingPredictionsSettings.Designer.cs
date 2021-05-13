@@ -54,20 +54,23 @@
             this.radioButton2 = new System.Windows.Forms.RadioButton();
             this.radioButton1 = new System.Windows.Forms.RadioButton();
             this.groupBox2 = new System.Windows.Forms.GroupBox();
-            this.radioButton4 = new System.Windows.Forms.RadioButton();
-            this.radioButton5 = new System.Windows.Forms.RadioButton();
-            this.radioButton6 = new System.Windows.Forms.RadioButton();
-            this.label10 = new System.Windows.Forms.Label();
             this.radioButton7 = new System.Windows.Forms.RadioButton();
+            this.label11 = new System.Windows.Forms.Label();
+            this.numericUpDown3 = new System.Windows.Forms.NumericUpDown();
+            this.doNotResolveRadioButton = new System.Windows.Forms.RadioButton();
+            this.label10 = new System.Windows.Forms.Label();
+            this.radioButton6 = new System.Windows.Forms.RadioButton();
+            this.radioButton5 = new System.Windows.Forms.RadioButton();
+            this.radioButton4 = new System.Windows.Forms.RadioButton();
             ((System.ComponentModel.ISupportInitialize) (this.numericUpDown1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize) (this.numericUpDown2)).BeginInit();
             this.groupBox1.SuspendLayout();
             this.groupBox2.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize) (this.numericUpDown3)).BeginInit();
             this.SuspendLayout();
             // 
             // label1
             // 
-            this.label1.Anchor = ((System.Windows.Forms.AnchorStyles) ((System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right)));
             this.label1.AutoSize = true;
             this.label1.Location = new System.Drawing.Point(10, 7);
             this.label1.Name = "label1";
@@ -77,16 +80,15 @@
             // 
             // txtOAuthToken
             // 
-            this.txtOAuthToken.Anchor = ((System.Windows.Forms.AnchorStyles) ((System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right)));
             this.txtOAuthToken.Location = new System.Drawing.Point(115, 4);
             this.txtOAuthToken.Name = "txtOAuthToken";
             this.txtOAuthToken.PasswordChar = '*';
-            this.txtOAuthToken.Size = new System.Drawing.Size(250, 20);
+            this.txtOAuthToken.Size = new System.Drawing.Size(233, 20);
             this.txtOAuthToken.TabIndex = 3;
             // 
             // getTokenBtn
             // 
-            this.getTokenBtn.Location = new System.Drawing.Point(371, 2);
+            this.getTokenBtn.Location = new System.Drawing.Point(354, 2);
             this.getTokenBtn.Name = "getTokenBtn";
             this.getTokenBtn.Size = new System.Drawing.Size(95, 23);
             this.getTokenBtn.TabIndex = 4;
@@ -98,22 +100,21 @@
             // 
             this.checkBox1.Location = new System.Drawing.Point(10, 315);
             this.checkBox1.Name = "checkBox1";
-            this.checkBox1.Size = new System.Drawing.Size(395, 21);
+            this.checkBox1.Size = new System.Drawing.Size(439, 21);
             this.checkBox1.TabIndex = 5;
-            this.checkBox1.Text = "Cancel Prediction on Reset (instead of resolving as \"No\")";
+            this.checkBox1.Text = "Cancel Prediction on Reset (instead of resolving as \"No\") (This will refund point" + "s)";
             this.checkBox1.UseVisualStyleBackColor = true;
             // 
             // label2
             // 
             this.label2.Location = new System.Drawing.Point(10, 131);
             this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(456, 16);
+            this.label2.Size = new System.Drawing.Size(413, 16);
             this.label2.TabIndex = 8;
             this.label2.Text = "NOTE: This can only resolve Predictions it created!";
             // 
             // label3
             // 
-            this.label3.Anchor = ((System.Windows.Forms.AnchorStyles) ((System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right)));
             this.label3.AutoSize = true;
             this.label3.Location = new System.Drawing.Point(10, 33);
             this.label3.Name = "label3";
@@ -123,16 +124,14 @@
             // 
             // textBox1
             // 
-            this.textBox1.Anchor = ((System.Windows.Forms.AnchorStyles) ((System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right)));
             this.textBox1.Location = new System.Drawing.Point(115, 30);
             this.textBox1.MaxLength = 25;
             this.textBox1.Name = "textBox1";
-            this.textBox1.Size = new System.Drawing.Size(250, 20);
+            this.textBox1.Size = new System.Drawing.Size(233, 20);
             this.textBox1.TabIndex = 10;
             // 
             // label4
             // 
-            this.label4.Anchor = ((System.Windows.Forms.AnchorStyles) ((System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right)));
             this.label4.AutoSize = true;
             this.label4.Location = new System.Drawing.Point(10, 59);
             this.label4.Name = "label4";
@@ -142,16 +141,14 @@
             // 
             // textBox2
             // 
-            this.textBox2.Anchor = ((System.Windows.Forms.AnchorStyles) ((System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right)));
             this.textBox2.Location = new System.Drawing.Point(115, 56);
             this.textBox2.MaxLength = 25;
             this.textBox2.Name = "textBox2";
-            this.textBox2.Size = new System.Drawing.Size(250, 20);
+            this.textBox2.Size = new System.Drawing.Size(233, 20);
             this.textBox2.TabIndex = 12;
             // 
             // label5
             // 
-            this.label5.Anchor = ((System.Windows.Forms.AnchorStyles) ((System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right)));
             this.label5.AutoSize = true;
             this.label5.Location = new System.Drawing.Point(10, 85);
             this.label5.Name = "label5";
@@ -161,32 +158,31 @@
             // 
             // textBox3
             // 
-            this.textBox3.Anchor = ((System.Windows.Forms.AnchorStyles) ((System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right)));
             this.textBox3.Location = new System.Drawing.Point(115, 82);
             this.textBox3.MaxLength = 45;
             this.textBox3.Name = "textBox3";
-            this.textBox3.Size = new System.Drawing.Size(250, 20);
+            this.textBox3.Size = new System.Drawing.Size(233, 20);
             this.textBox3.TabIndex = 14;
             // 
             // textBox4
             // 
             this.textBox4.Location = new System.Drawing.Point(116, 48);
             this.textBox4.Name = "textBox4";
-            this.textBox4.Size = new System.Drawing.Size(329, 20);
+            this.textBox4.Size = new System.Drawing.Size(317, 20);
             this.textBox4.TabIndex = 16;
             // 
             // textBox5
             // 
             this.textBox5.Location = new System.Drawing.Point(10, 289);
             this.textBox5.Name = "textBox5";
-            this.textBox5.Size = new System.Drawing.Size(445, 20);
+            this.textBox5.Size = new System.Drawing.Size(433, 20);
             this.textBox5.TabIndex = 18;
             // 
             // checkBox5
             // 
             this.checkBox5.Location = new System.Drawing.Point(10, 259);
             this.checkBox5.Name = "checkBox5";
-            this.checkBox5.Size = new System.Drawing.Size(456, 24);
+            this.checkBox5.Size = new System.Drawing.Size(413, 24);
             this.checkBox5.TabIndex = 17;
             this.checkBox5.Text = "Lock Prediction when the following Text is in the Name of the current Split:";
             this.checkBox5.UseVisualStyleBackColor = true;
@@ -203,7 +199,6 @@
             // 
             // label6
             // 
-            this.label6.Anchor = ((System.Windows.Forms.AnchorStyles) ((System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right)));
             this.label6.AutoSize = true;
             this.label6.Location = new System.Drawing.Point(10, 110);
             this.label6.Name = "label6";
@@ -213,7 +208,6 @@
             // 
             // label7
             // 
-            this.label7.Anchor = ((System.Windows.Forms.AnchorStyles) ((System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right)));
             this.label7.AutoSize = true;
             this.label7.Location = new System.Drawing.Point(318, 110);
             this.label7.Name = "label7";
@@ -225,14 +219,14 @@
             // 
             this.textBox6.Location = new System.Drawing.Point(143, 40);
             this.textBox6.Name = "textBox6";
-            this.textBox6.Size = new System.Drawing.Size(302, 20);
+            this.textBox6.Size = new System.Drawing.Size(290, 20);
             this.textBox6.TabIndex = 23;
             // 
             // textBox7
             // 
             this.textBox7.Location = new System.Drawing.Point(26, 89);
             this.textBox7.Name = "textBox7";
-            this.textBox7.Size = new System.Drawing.Size(419, 20);
+            this.textBox7.Size = new System.Drawing.Size(407, 20);
             this.textBox7.TabIndex = 25;
             // 
             // numericUpDown2
@@ -261,7 +255,7 @@
             this.groupBox1.Controls.Add(this.textBox4);
             this.groupBox1.Location = new System.Drawing.Point(10, 150);
             this.groupBox1.Name = "groupBox1";
-            this.groupBox1.Size = new System.Drawing.Size(456, 103);
+            this.groupBox1.Size = new System.Drawing.Size(439, 103);
             this.groupBox1.TabIndex = 29;
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "Create Prediction When";
@@ -298,6 +292,9 @@
             // groupBox2
             // 
             this.groupBox2.Controls.Add(this.radioButton7);
+            this.groupBox2.Controls.Add(this.label11);
+            this.groupBox2.Controls.Add(this.numericUpDown3);
+            this.groupBox2.Controls.Add(this.doNotResolveRadioButton);
             this.groupBox2.Controls.Add(this.label10);
             this.groupBox2.Controls.Add(this.radioButton6);
             this.groupBox2.Controls.Add(this.radioButton5);
@@ -308,19 +305,64 @@
             this.groupBox2.Controls.Add(this.numericUpDown2);
             this.groupBox2.Location = new System.Drawing.Point(10, 342);
             this.groupBox2.Name = "groupBox2";
-            this.groupBox2.Size = new System.Drawing.Size(451, 145);
+            this.groupBox2.Size = new System.Drawing.Size(439, 170);
             this.groupBox2.TabIndex = 30;
             this.groupBox2.TabStop = false;
             this.groupBox2.Text = "Resolve Prediction When";
             // 
-            // radioButton4
+            // radioButton7
             // 
-            this.radioButton4.Location = new System.Drawing.Point(8, 14);
-            this.radioButton4.Name = "radioButton4";
-            this.radioButton4.Size = new System.Drawing.Size(107, 20);
-            this.radioButton4.TabIndex = 0;
-            this.radioButton4.Text = "the Run PB\'s";
-            this.radioButton4.UseVisualStyleBackColor = true;
+            this.radioButton7.Location = new System.Drawing.Point(8, 115);
+            this.radioButton7.Name = "radioButton7";
+            this.radioButton7.Size = new System.Drawing.Size(67, 20);
+            this.radioButton7.TabIndex = 30;
+            this.radioButton7.Text = "less than";
+            this.radioButton7.UseVisualStyleBackColor = true;
+            // 
+            // label11
+            // 
+            this.label11.Location = new System.Drawing.Point(143, 117);
+            this.label11.Name = "label11";
+            this.label11.Size = new System.Drawing.Size(232, 18);
+            this.label11.TabIndex = 32;
+            this.label11.Text = "seconds are on the Timer when the Run Ends";
+            // 
+            // numericUpDown3
+            // 
+            this.numericUpDown3.Location = new System.Drawing.Point(81, 115);
+            this.numericUpDown3.Maximum = new decimal(new int[] {3686400, 0, 0, 0});
+            this.numericUpDown3.Minimum = new decimal(new int[] {100000, 0, 0, -2147483648});
+            this.numericUpDown3.Name = "numericUpDown3";
+            this.numericUpDown3.Size = new System.Drawing.Size(56, 20);
+            this.numericUpDown3.TabIndex = 31;
+            this.numericUpDown3.Value = new decimal(new int[] {60, 0, 0, 0});
+            // 
+            // doNotResolveRadioButton
+            // 
+            this.doNotResolveRadioButton.Checked = true;
+            this.doNotResolveRadioButton.Location = new System.Drawing.Point(8, 141);
+            this.doNotResolveRadioButton.Name = "doNotResolveRadioButton";
+            this.doNotResolveRadioButton.Size = new System.Drawing.Size(229, 24);
+            this.doNotResolveRadioButton.TabIndex = 29;
+            this.doNotResolveRadioButton.TabStop = true;
+            this.doNotResolveRadioButton.Text = "Do not automatically resolve the Prediction";
+            this.doNotResolveRadioButton.UseVisualStyleBackColor = true;
+            // 
+            // label10
+            // 
+            this.label10.Location = new System.Drawing.Point(26, 68);
+            this.label10.Name = "label10";
+            this.label10.Size = new System.Drawing.Size(49, 18);
+            this.label10.TabIndex = 28;
+            this.label10.Text = "less than";
+            // 
+            // radioButton6
+            // 
+            this.radioButton6.Location = new System.Drawing.Point(8, 78);
+            this.radioButton6.Name = "radioButton6";
+            this.radioButton6.Size = new System.Drawing.Size(18, 20);
+            this.radioButton6.TabIndex = 24;
+            this.radioButton6.UseVisualStyleBackColor = true;
             // 
             // radioButton5
             // 
@@ -331,37 +373,20 @@
             this.radioButton5.Text = "this Split starts ahead:";
             this.radioButton5.UseVisualStyleBackColor = true;
             // 
-            // radioButton6
+            // radioButton4
             // 
-            this.radioButton6.Location = new System.Drawing.Point(8, 78);
-            this.radioButton6.Name = "radioButton6";
-            this.radioButton6.Size = new System.Drawing.Size(18, 20);
-            this.radioButton6.TabIndex = 24;
-            this.radioButton6.UseVisualStyleBackColor = true;
-            // 
-            // label10
-            // 
-            this.label10.Location = new System.Drawing.Point(26, 68);
-            this.label10.Name = "label10";
-            this.label10.Size = new System.Drawing.Size(49, 18);
-            this.label10.TabIndex = 28;
-            this.label10.Text = "less than";
-            // 
-            // radioButton7
-            // 
-            this.radioButton7.Checked = true;
-            this.radioButton7.Location = new System.Drawing.Point(8, 115);
-            this.radioButton7.Name = "radioButton7";
-            this.radioButton7.Size = new System.Drawing.Size(229, 24);
-            this.radioButton7.TabIndex = 29;
-            this.radioButton7.TabStop = true;
-            this.radioButton7.Text = "Do not automatically resolve the Prediction";
-            this.radioButton7.UseVisualStyleBackColor = true;
+            this.radioButton4.Location = new System.Drawing.Point(8, 14);
+            this.radioButton4.Name = "radioButton4";
+            this.radioButton4.Size = new System.Drawing.Size(107, 20);
+            this.radioButton4.TabIndex = 0;
+            this.radioButton4.Text = "the Run PB\'s";
+            this.radioButton4.UseVisualStyleBackColor = true;
             // 
             // StreamingPredictionsSettings
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.AutoScroll = true;
             this.Controls.Add(this.groupBox2);
             this.Controls.Add(this.groupBox1);
             this.Controls.Add(this.label7);
@@ -382,19 +407,24 @@
             this.Controls.Add(this.txtOAuthToken);
             this.Name = "StreamingPredictionsSettings";
             this.Padding = new System.Windows.Forms.Padding(7);
-            this.Size = new System.Drawing.Size(476, 509);
+            this.Size = new System.Drawing.Size(457, 627);
             ((System.ComponentModel.ISupportInitialize) (this.numericUpDown1)).EndInit();
             ((System.ComponentModel.ISupportInitialize) (this.numericUpDown2)).EndInit();
             this.groupBox1.ResumeLayout(false);
             this.groupBox1.PerformLayout();
             this.groupBox2.ResumeLayout(false);
             this.groupBox2.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize) (this.numericUpDown3)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
         }
 
-        private System.Windows.Forms.Label label10;
         private System.Windows.Forms.RadioButton radioButton7;
+        private System.Windows.Forms.Label label11;
+        private System.Windows.Forms.NumericUpDown numericUpDown3;
+
+        private System.Windows.Forms.Label label10;
+        private System.Windows.Forms.RadioButton doNotResolveRadioButton;
 
         private System.Windows.Forms.RadioButton radioButton6;
 
