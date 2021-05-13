@@ -294,6 +294,8 @@ namespace LiveSplit.UI.Components
             ResolveOnSplit = SettingsHelper.ParseBool(element["ResolveOnSplit"], false);
             ResolveOnSplitTimed = SettingsHelper.ParseBool(element["ResolveOnSplitTimed"], false);
             ResolveOnEndTimed = SettingsHelper.ParseBool(element["ResolveOnEndTimed"], false);
+            ResolveOnEndOfRunReached = SettingsHelper.ParseBool(element["ResolveOnEndOfRunReached"], false);
+            ResolveOnSplitReached = SettingsHelper.ParseBool(element["ResolveOnSplitReached"], false);
             LockTime = SettingsHelper.ParseInt(element["LockTime"], 600);
             ResolveTime = SettingsHelper.ParseInt(element["ResolveTime"], 60);
             ResolveEndTime = SettingsHelper.ParseInt(element["ResolveEndTime"], 60);
