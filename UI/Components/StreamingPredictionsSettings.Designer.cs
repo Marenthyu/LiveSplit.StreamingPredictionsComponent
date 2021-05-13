@@ -32,8 +32,6 @@
             this.txtOAuthToken = new System.Windows.Forms.TextBox();
             this.getTokenBtn = new System.Windows.Forms.Button();
             this.checkBox1 = new System.Windows.Forms.CheckBox();
-            this.checkBox2 = new System.Windows.Forms.CheckBox();
-            this.checkBox3 = new System.Windows.Forms.CheckBox();
             this.label2 = new System.Windows.Forms.Label();
             this.label3 = new System.Windows.Forms.Label();
             this.textBox1 = new System.Windows.Forms.TextBox();
@@ -41,7 +39,6 @@
             this.textBox2 = new System.Windows.Forms.TextBox();
             this.label5 = new System.Windows.Forms.Label();
             this.textBox3 = new System.Windows.Forms.TextBox();
-            this.checkBox4 = new System.Windows.Forms.CheckBox();
             this.textBox4 = new System.Windows.Forms.TextBox();
             this.textBox5 = new System.Windows.Forms.TextBox();
             this.checkBox5 = new System.Windows.Forms.CheckBox();
@@ -49,14 +46,23 @@
             this.label6 = new System.Windows.Forms.Label();
             this.label7 = new System.Windows.Forms.Label();
             this.textBox6 = new System.Windows.Forms.TextBox();
-            this.checkBox6 = new System.Windows.Forms.CheckBox();
             this.textBox7 = new System.Windows.Forms.TextBox();
-            this.checkBox7 = new System.Windows.Forms.CheckBox();
             this.numericUpDown2 = new System.Windows.Forms.NumericUpDown();
             this.label8 = new System.Windows.Forms.Label();
-            this.label9 = new System.Windows.Forms.Label();
+            this.groupBox1 = new System.Windows.Forms.GroupBox();
+            this.radioButton3 = new System.Windows.Forms.RadioButton();
+            this.radioButton2 = new System.Windows.Forms.RadioButton();
+            this.radioButton1 = new System.Windows.Forms.RadioButton();
+            this.groupBox2 = new System.Windows.Forms.GroupBox();
+            this.radioButton4 = new System.Windows.Forms.RadioButton();
+            this.radioButton5 = new System.Windows.Forms.RadioButton();
+            this.radioButton6 = new System.Windows.Forms.RadioButton();
+            this.label10 = new System.Windows.Forms.Label();
+            this.radioButton7 = new System.Windows.Forms.RadioButton();
             ((System.ComponentModel.ISupportInitialize) (this.numericUpDown1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize) (this.numericUpDown2)).BeginInit();
+            this.groupBox1.SuspendLayout();
+            this.groupBox2.SuspendLayout();
             this.SuspendLayout();
             // 
             // label1
@@ -90,42 +96,20 @@
             // 
             // checkBox1
             // 
-            this.checkBox1.Location = new System.Drawing.Point(10, 163);
+            this.checkBox1.Location = new System.Drawing.Point(10, 315);
             this.checkBox1.Name = "checkBox1";
             this.checkBox1.Size = new System.Drawing.Size(395, 21);
             this.checkBox1.TabIndex = 5;
             this.checkBox1.Text = "Cancel Prediction on Reset (instead of resolving as \"No\")";
             this.checkBox1.UseVisualStyleBackColor = true;
             // 
-            // checkBox2
-            // 
-            this.checkBox2.Checked = true;
-            this.checkBox2.CheckState = System.Windows.Forms.CheckState.Checked;
-            this.checkBox2.Location = new System.Drawing.Point(10, 190);
-            this.checkBox2.Name = "checkBox2";
-            this.checkBox2.Size = new System.Drawing.Size(456, 21);
-            this.checkBox2.TabIndex = 6;
-            this.checkBox2.Text = "Resolve on the end of a Run (Selecting \"Yes\" if it was a PB, \"No\" if it was not)";
-            this.checkBox2.UseVisualStyleBackColor = true;
-            // 
-            // checkBox3
-            // 
-            this.checkBox3.Checked = true;
-            this.checkBox3.CheckState = System.Windows.Forms.CheckState.Checked;
-            this.checkBox3.Location = new System.Drawing.Point(10, 217);
-            this.checkBox3.Name = "checkBox3";
-            this.checkBox3.Size = new System.Drawing.Size(395, 24);
-            this.checkBox3.TabIndex = 7;
-            this.checkBox3.Text = "Create Prediction on Timer Start";
-            this.checkBox3.UseVisualStyleBackColor = true;
-            // 
             // label2
             // 
             this.label2.Location = new System.Drawing.Point(10, 131);
             this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(456, 29);
+            this.label2.Size = new System.Drawing.Size(456, 16);
             this.label2.TabIndex = 8;
-            this.label2.Text = "NOTE: Some combinations of settings may not work - importantly, this Component ca" + "n only\r\nresolve or reset a Prediction it created itself.";
+            this.label2.Text = "NOTE: This can only resolve Predictions it created!";
             // 
             // label3
             // 
@@ -184,32 +168,23 @@
             this.textBox3.Size = new System.Drawing.Size(250, 20);
             this.textBox3.TabIndex = 14;
             // 
-            // checkBox4
-            // 
-            this.checkBox4.Location = new System.Drawing.Point(10, 247);
-            this.checkBox4.Name = "checkBox4";
-            this.checkBox4.Size = new System.Drawing.Size(456, 24);
-            this.checkBox4.TabIndex = 15;
-            this.checkBox4.Text = "Create Prediction when the following Text is in the Name of the current Split:";
-            this.checkBox4.UseVisualStyleBackColor = true;
-            // 
             // textBox4
             // 
-            this.textBox4.Location = new System.Drawing.Point(10, 277);
+            this.textBox4.Location = new System.Drawing.Point(116, 48);
             this.textBox4.Name = "textBox4";
-            this.textBox4.Size = new System.Drawing.Size(456, 20);
+            this.textBox4.Size = new System.Drawing.Size(329, 20);
             this.textBox4.TabIndex = 16;
             // 
             // textBox5
             // 
-            this.textBox5.Location = new System.Drawing.Point(10, 333);
+            this.textBox5.Location = new System.Drawing.Point(10, 289);
             this.textBox5.Name = "textBox5";
-            this.textBox5.Size = new System.Drawing.Size(456, 20);
+            this.textBox5.Size = new System.Drawing.Size(445, 20);
             this.textBox5.TabIndex = 18;
             // 
             // checkBox5
             // 
-            this.checkBox5.Location = new System.Drawing.Point(10, 303);
+            this.checkBox5.Location = new System.Drawing.Point(10, 259);
             this.checkBox5.Name = "checkBox5";
             this.checkBox5.Size = new System.Drawing.Size(456, 24);
             this.checkBox5.TabIndex = 17;
@@ -248,80 +223,152 @@
             // 
             // textBox6
             // 
-            this.textBox6.Location = new System.Drawing.Point(10, 389);
+            this.textBox6.Location = new System.Drawing.Point(143, 40);
             this.textBox6.Name = "textBox6";
-            this.textBox6.Size = new System.Drawing.Size(456, 20);
+            this.textBox6.Size = new System.Drawing.Size(302, 20);
             this.textBox6.TabIndex = 23;
-            // 
-            // checkBox6
-            // 
-            this.checkBox6.Location = new System.Drawing.Point(10, 359);
-            this.checkBox6.Name = "checkBox6";
-            this.checkBox6.Size = new System.Drawing.Size(456, 24);
-            this.checkBox6.TabIndex = 22;
-            this.checkBox6.Text = "Resolve Prediction if ahead by the start of this Split:";
-            this.checkBox6.UseVisualStyleBackColor = true;
             // 
             // textBox7
             // 
-            this.textBox7.Location = new System.Drawing.Point(115, 441);
+            this.textBox7.Location = new System.Drawing.Point(26, 89);
             this.textBox7.Name = "textBox7";
-            this.textBox7.Size = new System.Drawing.Size(351, 20);
+            this.textBox7.Size = new System.Drawing.Size(419, 20);
             this.textBox7.TabIndex = 25;
-            // 
-            // checkBox7
-            // 
-            this.checkBox7.Location = new System.Drawing.Point(10, 415);
-            this.checkBox7.Name = "checkBox7";
-            this.checkBox7.Size = new System.Drawing.Size(168, 24);
-            this.checkBox7.TabIndex = 24;
-            this.checkBox7.Text = "Resolve Prediction if less than";
-            this.checkBox7.UseVisualStyleBackColor = true;
             // 
             // numericUpDown2
             // 
-            this.numericUpDown2.Location = new System.Drawing.Point(174, 418);
+            this.numericUpDown2.Location = new System.Drawing.Point(81, 66);
             this.numericUpDown2.Maximum = new decimal(new int[] {3686400, 0, 0, 0});
             this.numericUpDown2.Minimum = new decimal(new int[] {100000, 0, 0, -2147483648});
             this.numericUpDown2.Name = "numericUpDown2";
-            this.numericUpDown2.Size = new System.Drawing.Size(122, 20);
+            this.numericUpDown2.Size = new System.Drawing.Size(56, 20);
             this.numericUpDown2.TabIndex = 26;
             this.numericUpDown2.Value = new decimal(new int[] {60, 0, 0, 0});
             // 
             // label8
             // 
-            this.label8.Location = new System.Drawing.Point(302, 420);
+            this.label8.Location = new System.Drawing.Point(143, 68);
             this.label8.Name = "label8";
-            this.label8.Size = new System.Drawing.Size(164, 18);
+            this.label8.Size = new System.Drawing.Size(232, 18);
             this.label8.TabIndex = 27;
-            this.label8.Text = "seconds are on the Timer when";
+            this.label8.Text = "seconds are on the Timer when this Split starts:";
             // 
-            // label9
+            // groupBox1
             // 
-            this.label9.Location = new System.Drawing.Point(29, 444);
-            this.label9.Name = "label9";
-            this.label9.Size = new System.Drawing.Size(80, 18);
-            this.label9.TabIndex = 28;
-            this.label9.Text = "this split starts:";
+            this.groupBox1.Controls.Add(this.radioButton3);
+            this.groupBox1.Controls.Add(this.radioButton2);
+            this.groupBox1.Controls.Add(this.radioButton1);
+            this.groupBox1.Controls.Add(this.textBox4);
+            this.groupBox1.Location = new System.Drawing.Point(10, 150);
+            this.groupBox1.Name = "groupBox1";
+            this.groupBox1.Size = new System.Drawing.Size(456, 103);
+            this.groupBox1.TabIndex = 29;
+            this.groupBox1.TabStop = false;
+            this.groupBox1.Text = "Create Prediction When";
+            // 
+            // radioButton3
+            // 
+            this.radioButton3.Checked = true;
+            this.radioButton3.Location = new System.Drawing.Point(8, 73);
+            this.radioButton3.Name = "radioButton3";
+            this.radioButton3.Size = new System.Drawing.Size(206, 24);
+            this.radioButton3.TabIndex = 18;
+            this.radioButton3.TabStop = true;
+            this.radioButton3.Text = "Do not automatically start a Prediction";
+            this.radioButton3.UseVisualStyleBackColor = true;
+            // 
+            // radioButton2
+            // 
+            this.radioButton2.Location = new System.Drawing.Point(8, 47);
+            this.radioButton2.Name = "radioButton2";
+            this.radioButton2.Size = new System.Drawing.Size(104, 20);
+            this.radioButton2.TabIndex = 17;
+            this.radioButton2.Text = "This Split starts:";
+            this.radioButton2.UseVisualStyleBackColor = true;
+            // 
+            // radioButton1
+            // 
+            this.radioButton1.Location = new System.Drawing.Point(8, 17);
+            this.radioButton1.Name = "radioButton1";
+            this.radioButton1.Size = new System.Drawing.Size(104, 24);
+            this.radioButton1.TabIndex = 0;
+            this.radioButton1.Text = "The Timer starts";
+            this.radioButton1.UseVisualStyleBackColor = true;
+            // 
+            // groupBox2
+            // 
+            this.groupBox2.Controls.Add(this.radioButton7);
+            this.groupBox2.Controls.Add(this.label10);
+            this.groupBox2.Controls.Add(this.radioButton6);
+            this.groupBox2.Controls.Add(this.radioButton5);
+            this.groupBox2.Controls.Add(this.radioButton4);
+            this.groupBox2.Controls.Add(this.textBox7);
+            this.groupBox2.Controls.Add(this.label8);
+            this.groupBox2.Controls.Add(this.textBox6);
+            this.groupBox2.Controls.Add(this.numericUpDown2);
+            this.groupBox2.Location = new System.Drawing.Point(10, 342);
+            this.groupBox2.Name = "groupBox2";
+            this.groupBox2.Size = new System.Drawing.Size(451, 145);
+            this.groupBox2.TabIndex = 30;
+            this.groupBox2.TabStop = false;
+            this.groupBox2.Text = "Resolve Prediction When";
+            // 
+            // radioButton4
+            // 
+            this.radioButton4.Location = new System.Drawing.Point(8, 14);
+            this.radioButton4.Name = "radioButton4";
+            this.radioButton4.Size = new System.Drawing.Size(107, 20);
+            this.radioButton4.TabIndex = 0;
+            this.radioButton4.Text = "the Run PB\'s";
+            this.radioButton4.UseVisualStyleBackColor = true;
+            // 
+            // radioButton5
+            // 
+            this.radioButton5.Location = new System.Drawing.Point(8, 40);
+            this.radioButton5.Name = "radioButton5";
+            this.radioButton5.Size = new System.Drawing.Size(129, 20);
+            this.radioButton5.TabIndex = 1;
+            this.radioButton5.Text = "this Split starts ahead:";
+            this.radioButton5.UseVisualStyleBackColor = true;
+            // 
+            // radioButton6
+            // 
+            this.radioButton6.Location = new System.Drawing.Point(8, 78);
+            this.radioButton6.Name = "radioButton6";
+            this.radioButton6.Size = new System.Drawing.Size(18, 20);
+            this.radioButton6.TabIndex = 24;
+            this.radioButton6.UseVisualStyleBackColor = true;
+            // 
+            // label10
+            // 
+            this.label10.Location = new System.Drawing.Point(26, 68);
+            this.label10.Name = "label10";
+            this.label10.Size = new System.Drawing.Size(49, 18);
+            this.label10.TabIndex = 28;
+            this.label10.Text = "less than";
+            // 
+            // radioButton7
+            // 
+            this.radioButton7.Checked = true;
+            this.radioButton7.Location = new System.Drawing.Point(8, 115);
+            this.radioButton7.Name = "radioButton7";
+            this.radioButton7.Size = new System.Drawing.Size(229, 24);
+            this.radioButton7.TabIndex = 29;
+            this.radioButton7.TabStop = true;
+            this.radioButton7.Text = "Do not automatically resolve the Prediction";
+            this.radioButton7.UseVisualStyleBackColor = true;
             // 
             // StreamingPredictionsSettings
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.Controls.Add(this.label9);
-            this.Controls.Add(this.label8);
-            this.Controls.Add(this.numericUpDown2);
-            this.Controls.Add(this.textBox7);
-            this.Controls.Add(this.checkBox7);
-            this.Controls.Add(this.textBox6);
-            this.Controls.Add(this.checkBox6);
+            this.Controls.Add(this.groupBox2);
+            this.Controls.Add(this.groupBox1);
             this.Controls.Add(this.label7);
             this.Controls.Add(this.label6);
             this.Controls.Add(this.numericUpDown1);
             this.Controls.Add(this.textBox5);
             this.Controls.Add(this.checkBox5);
-            this.Controls.Add(this.textBox4);
-            this.Controls.Add(this.checkBox4);
             this.Controls.Add(this.label5);
             this.Controls.Add(this.textBox3);
             this.Controls.Add(this.label4);
@@ -329,8 +376,6 @@
             this.Controls.Add(this.label3);
             this.Controls.Add(this.textBox1);
             this.Controls.Add(this.label2);
-            this.Controls.Add(this.checkBox3);
-            this.Controls.Add(this.checkBox2);
             this.Controls.Add(this.checkBox1);
             this.Controls.Add(this.getTokenBtn);
             this.Controls.Add(this.label1);
@@ -340,19 +385,37 @@
             this.Size = new System.Drawing.Size(476, 509);
             ((System.ComponentModel.ISupportInitialize) (this.numericUpDown1)).EndInit();
             ((System.ComponentModel.ISupportInitialize) (this.numericUpDown2)).EndInit();
+            this.groupBox1.ResumeLayout(false);
+            this.groupBox1.PerformLayout();
+            this.groupBox2.ResumeLayout(false);
+            this.groupBox2.PerformLayout();
             this.ResumeLayout(false);
             this.PerformLayout();
         }
 
-        private System.Windows.Forms.Label label9;
+        private System.Windows.Forms.Label label10;
+        private System.Windows.Forms.RadioButton radioButton7;
 
-        private System.Windows.Forms.CheckBox checkBox7;
+        private System.Windows.Forms.RadioButton radioButton6;
+
+        private System.Windows.Forms.RadioButton radioButton5;
+
+        private System.Windows.Forms.RadioButton radioButton4;
+
+        private System.Windows.Forms.GroupBox groupBox2;
+
+        private System.Windows.Forms.RadioButton radioButton3;
+
+        private System.Windows.Forms.RadioButton radioButton2;
+
+        private System.Windows.Forms.GroupBox groupBox1;
+        private System.Windows.Forms.RadioButton radioButton1;
+
         private System.Windows.Forms.TextBox textBox7;
         private System.Windows.Forms.NumericUpDown numericUpDown2;
         private System.Windows.Forms.Label label8;
 
         private System.Windows.Forms.TextBox textBox6;
-        private System.Windows.Forms.CheckBox checkBox6;
 
         private System.Windows.Forms.Label label7;
 
@@ -363,7 +426,6 @@
         private System.Windows.Forms.TextBox textBox5;
         private System.Windows.Forms.CheckBox checkBox5;
 
-        private System.Windows.Forms.CheckBox checkBox4;
         private System.Windows.Forms.TextBox textBox4;
 
         private System.Windows.Forms.Label label5;
@@ -376,10 +438,6 @@
         private System.Windows.Forms.TextBox textBox1;
 
         private System.Windows.Forms.Label label2;
-
-        private System.Windows.Forms.CheckBox checkBox3;
-
-        private System.Windows.Forms.CheckBox checkBox2;
 
         private System.Windows.Forms.CheckBox checkBox1;
 

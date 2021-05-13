@@ -22,55 +22,55 @@ namespace LiveSplit.UI.Components
             get => _oAuthToken;
             set => _oAuthToken = value;
         }
-        
+
         public string YesOptionName
         {
             get => _yesOptionName;
             set => _yesOptionName = value;
         }
-        
+
         public string NoOptionName
         {
             get => _noOptionName;
             set => _noOptionName = value;
         }
-        
+
         public string PredictionTitle
         {
             get => _predictionTitle;
             set => _predictionTitle = value;
         }
-        
+
         public string CreateSplitName
         {
             get => _createSplitName;
             set => _createSplitName = value;
         }
-        
+
         public string LockSplitName
         {
             get => _lockSplitName;
             set => _lockSplitName = value;
         }
-        
+
         public string ResolveSplitName
         {
             get => _resolveSplitName;
             set => _resolveSplitName = value;
         }
-        
+
         public string ResolveSplitTimedName
         {
             get => _resolveSplitTimedName;
             set => _resolveSplitTimedName = value;
         }
-        
+
         public int LockTime
         {
             get => _lockTime;
             set => _lockTime = value;
         }
-        
+
         public int ResolveTime
         {
             get => _resolveTime;
@@ -82,37 +82,38 @@ namespace LiveSplit.UI.Components
             get => _cancelOnReset;
             set => _cancelOnReset = value;
         }
-        
+
         public bool CreateOnStart
         {
             get => _createOnStart;
             set => _createOnStart = value;
         }
-        
+
         public bool CreateOnSplit
         {
             get => _createOnSplit;
             set => _createOnSplit = value;
         }
-        
+
+
         public bool LockOnSplit
         {
             get => _lockOnSplit;
             set => _lockOnSplit = value;
         }
-        
+
         public bool ResolveOnEndOfRun
         {
             get => _resolveOnEndOfRun;
             set => _resolveOnEndOfRun = value;
         }
-        
+
         public bool ResolveOnSplit
         {
             get => _resolveOnSplit;
             set => _resolveOnSplit = value;
         }
-        
+
         public bool ResolveOnSplitTimed
         {
             get => _resolveOnSplitTimed;
@@ -197,18 +198,42 @@ namespace LiveSplit.UI.Components
             numericUpDown1.DataBindings.Add("Value", this, "LockTime");
             numericUpDown2.DataBindings.Add("Value", this, "ResolveTime");
             checkBox1.DataBindings.Add("Checked", this, "CancelOnReset");
-            checkBox2.DataBindings.Add("Checked", this, "ResolveOnEndOfRun");
-            checkBox3.DataBindings.Add("Checked", this, "CreateOnStart");
-            checkBox4.DataBindings.Add("Checked", this, "CreateOnSplit");
+            //radioButton4.DataBindings.Add("Checked", this, "ResolveOnEndOfRun");
+            //radioButton1.DataBindings.Add("Checked", this, "CreateOnStart", true, DataSourceUpdateMode.OnPropertyChanged);
+            //radioButton2.DataBindings.Add("Checked", this, "CreateOnSplit", true, DataSourceUpdateMode.OnPropertyChanged);
+            radioButton1.CheckedChanged += OnChange;
+            radioButton2.CheckedChanged += OnChange;
+            radioButton4.CheckedChanged += OnChange;
+            radioButton5.CheckedChanged += OnChange;
+            radioButton6.CheckedChanged += OnChange;
             checkBox5.DataBindings.Add("Checked", this, "LockOnSplit");
-            checkBox6.DataBindings.Add("Checked", this, "ResolveOnSplit");
-            checkBox7.DataBindings.Add("Checked", this, "ResolveOnSplitTimed");
+            //radioButton5.DataBindings.Add("Checked", this, "ResolveOnSplit");
+            //radioButton6.DataBindings.Add("Checked", this, "ResolveOnSplitTimed");
             State = state;
         }
 
+        private void OnChange(object sender, EventArgs eventArgs)
+        {
+            if (sender == radioButton1)
+            {
+                CreateOnStart = ((RadioButton) sender).Checked;
+            } else if (sender == radioButton2)
+            {
+                CreateOnSplit = ((RadioButton) sender).Checked;
+            } else if (sender == radioButton4)
+            {
+                ResolveOnEndOfRun = ((RadioButton) sender).Checked;
+            } else if (sender == radioButton5)
+            {
+                ResolveOnSplit = ((RadioButton) sender).Checked;
+            } else if (sender == radioButton6)
+            {
+                ResolveOnSplitTimed = ((RadioButton) sender).Checked;
+            }
+        }
+        
         public void SetSettings(XmlNode node)
         {
-            Log.Info("Settings set in settings object!");
             var element = (XmlElement) node;
 
             OAuthToken = SettingsHelper.ParseString(element["OAuthToken"], "");
@@ -228,6 +253,13 @@ namespace LiveSplit.UI.Components
             ResolveOnSplitTimed = SettingsHelper.ParseBool(element["ResolveOnSplitTimed"], false);
             LockTime = SettingsHelper.ParseInt(element["LockTime"], 600);
             ResolveTime = SettingsHelper.ParseInt(element["ResolveTime"], 60);
+            radioButton1.Checked = CreateOnStart;
+            radioButton2.Checked = CreateOnSplit;
+            radioButton3.Checked = !(CreateOnSplit || CreateOnStart);
+            radioButton4.Checked = ResolveOnEndOfRun;
+            radioButton5.Checked = ResolveOnSplit;
+            radioButton6.Checked = ResolveOnSplitTimed;
+            radioButton7.Checked = !(ResolveOnEndOfRun || ResolveOnSplit || ResolveOnSplitTimed);
             validateToken().Wait();
         }
 
@@ -284,7 +316,8 @@ namespace LiveSplit.UI.Components
                 catch (WebException we)
                 {
                     Log.Info("Error Status: " + ((HttpWebResponse) we.Response).StatusCode.ToString());
-                    if (we.Status.Equals(WebExceptionStatus.ProtocolError) && ((HttpWebResponse) we.Response).StatusCode == HttpStatusCode.Unauthorized)
+                    if (we.Status.Equals(WebExceptionStatus.ProtocolError) &&
+                        ((HttpWebResponse) we.Response).StatusCode == HttpStatusCode.Unauthorized)
                     {
                         response = we.Response;
                     }
@@ -293,6 +326,7 @@ namespace LiveSplit.UI.Components
                         throw we;
                     }
                 }
+
                 StreamReader streamReader = new StreamReader(response.GetResponseStream());
                 var responseContent = streamReader.ReadToEnd();
                 Log.Info("Got response: " + responseContent);
@@ -323,7 +357,6 @@ namespace LiveSplit.UI.Components
                 {
                     Log.Warning("Invalid Token! Request new token from user pls...");
                     AskForNewToken();
-                    
                 }
             }
             catch (WebException ex)
@@ -339,14 +372,17 @@ namespace LiveSplit.UI.Components
 
         private void AskForNewToken()
         {
-            DialogResult dialogResult = MessageBox.Show("Your Predictions Integration Token is invalid or will expire soon.\nDo you want to save a new one now?", "Streaming Prediction Integration", MessageBoxButtons.YesNo);
-            
-            if(dialogResult == DialogResult.Yes)
+            DialogResult dialogResult =
+                MessageBox.Show(
+                    "Your Predictions Integration Token is invalid or will expire soon.\nDo you want to save a new one now?",
+                    "Streaming Prediction Integration", MessageBoxButtons.YesNo);
+
+            if (dialogResult == DialogResult.Yes)
             {
                 getTokenBtn_Click(null, null);
             }
         }
-        
+
         private void getTokenBtn_Click(object sender, EventArgs e)
         {
             Process.Start(
@@ -413,6 +449,5 @@ namespace LiveSplit.UI.Components
                 }).Wait();
             }
         }
-        
     }
 }
