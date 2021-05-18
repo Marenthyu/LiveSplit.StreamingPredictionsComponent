@@ -246,9 +246,9 @@ namespace LiveSplit.UI.Components
             var id = StreamingPredictionsSettings.userID;
             var j = DoWebRequest("https://api.twitch.tv/helix/predictions", "POST",
                 "{\"broadcaster_id\":\"" + id +
-                "\", \"title\":\"" + Settings.PredictionTitle + "\", \"prediction_window\":" + Settings.LockTime +
-                ", \"outcomes\": [{\"title\":\"" + Settings.YesOptionName + "\"}, {\"title\":\"" +
-                Settings.NoOptionName + "\"}]}");
+                "\", \"title\":\"" + JSON.Escape(Settings.PredictionTitle) + "\", \"prediction_window\":" + Settings.LockTime +
+                ", \"outcomes\": [{\"title\":\"" + JSON.Escape(Settings.YesOptionName) + "\"}, {\"title\":\"" +
+                JSON.Escape(Settings.NoOptionName) + "\"}]}");
             currentPredictionID = j["data"][0]["id"];
             foreach (var outcome in j["data"][0]["outcomes"])
             {
