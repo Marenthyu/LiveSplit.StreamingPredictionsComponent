@@ -70,7 +70,7 @@ namespace LiveSplit.UI.Components
         public override void SetSettings(XmlNode settings)
         {
             Log.Info("Settings set!");
-            var oldToken = Settings.OAuthToken;
+            //var oldToken = Settings.OAuthToken;
             Settings.SetSettings(settings);
         }
 
@@ -83,7 +83,7 @@ namespace LiveSplit.UI.Components
             {
                 if (Settings.CreateOnStart)
                 {
-                    StartNewPrediction();
+					_ = StartNewPredictionAsync();
                 }
             }
             catch (Exception ex)
@@ -105,13 +105,13 @@ namespace LiveSplit.UI.Components
                         bool isPB = State.Run.Last().PersonalBestSplitTime[State.CurrentTimingMethod] == null ||
                                     State.Run.Last().SplitTime[State.CurrentTimingMethod] <
                                     State.Run.Last().PersonalBestSplitTime[State.CurrentTimingMethod];
-                        ResolveCurrentPrediction(isPB);
+						_ = ResolveCurrentPredictionAsync(isPB);
                     }
                     else if (Settings.ResolveOnEndTimed)
                     {
                         var wasFastEnough = State.CurrentTime[State.CurrentTimingMethod].Value <
                                             TimeSpan.FromSeconds(Settings.ResolveEndTime);
-                        ResolveCurrentPrediction(wasFastEnough);
+						_ = ResolveCurrentPredictionAsync(wasFastEnough);
                     }
                     else if (Settings.ResolveOnAmountEndOfRun && (Settings.ResolveOnGoldSplits ||
                                                                   Settings.ResolveOnGoodSplits ||
@@ -125,13 +125,13 @@ namespace LiveSplit.UI.Components
                 {
                     if (Settings.CreateOnSplit && State.CurrentSplit.Name.Contains(Settings.CreateSplitName))
                     {
-                        StartNewPrediction();
+						_ = StartNewPredictionAsync();
                     }
                     else
                     {
                         if (Settings.LockOnSplit && State.CurrentSplit.Name.Contains(Settings.LockSplitName))
                         {
-                            LockCurrentPrediction();
+							_ = LockCurrentPredictionAsync();
                         }
                     }
 
@@ -139,7 +139,7 @@ namespace LiveSplit.UI.Components
                     {
                         if (Settings.ResolveOnSplitReached)
                         {
-                            ResolveCurrentPrediction(true);
+							_ = ResolveCurrentPredictionAsync(true);
                         }
                         else if (Settings.ResolveOnSplit)
                         {
@@ -148,13 +148,13 @@ namespace LiveSplit.UI.Components
                                                  State.Run[splitIndex].Comparisons[State.CurrentComparison][
                                                      State.CurrentTimingMethod];
                             var ahead = timeDifference < TimeSpan.Zero;
-                            ResolveCurrentPrediction(ahead);
+							_ = ResolveCurrentPredictionAsync(ahead);
                         }
                         else if (Settings.ResolveOnSplitTimed)
                         {
                             var wasFastEnough = State.CurrentTime[State.CurrentTimingMethod].Value <
                                                 TimeSpan.FromSeconds(Settings.ResolveTime);
-                            ResolveCurrentPrediction(wasFastEnough);
+							_ = ResolveCurrentPredictionAsync(wasFastEnough);
                         }
                     }
 
@@ -202,15 +202,15 @@ namespace LiveSplit.UI.Components
 
             if (Settings.ResolveOnGoldSplits)
             {
-                ResolveCurrentPrediction(gold >= Settings.ResolveOnAmount);
+				_ = ResolveCurrentPredictionAsync(gold >= Settings.ResolveOnAmount);
             }
             else if (Settings.ResolveOnGoodSplits)
             {
-                ResolveCurrentPrediction(good >= Settings.ResolveOnAmount);
+				_ = ResolveCurrentPredictionAsync(good >= Settings.ResolveOnAmount);
             }
             else if (Settings.ResolveOnBadSplits)
             {
-                ResolveCurrentPrediction(bad >= Settings.ResolveOnAmount);
+				_ = ResolveCurrentPredictionAsync(bad >= Settings.ResolveOnAmount);
             }
         }
 
@@ -223,11 +223,11 @@ namespace LiveSplit.UI.Components
                 {
                     if (Settings.CancelOnReset)
                     {
-                        CancelCurrentPrediction();
+						_ = CancelCurrentPredictionAsync();
                     }
                     else
                     {
-                        ResolveCurrentPrediction(false);
+						_ = ResolveCurrentPredictionAsync(false);
                     }
 
                     hasClosedPrediction = false;
@@ -241,14 +241,14 @@ namespace LiveSplit.UI.Components
 
         public int GetSettingsHashCode() => Settings.GetSettingsHashCode();
 
-        private dynamic StartNewPrediction()
+        private async Task<dynamic> StartNewPredictionAsync()
         {
             var id = StreamingPredictionsSettings.userID;
-            var j = DoWebRequest("https://api.twitch.tv/helix/predictions", "POST",
+            var j = await DoWebRequestAsync("https://api.twitch.tv/helix/predictions", "POST",
                 "{\"broadcaster_id\":\"" + id +
-                "\", \"title\":\"" + Settings.PredictionTitle + "\", \"prediction_window\":" + Settings.LockTime +
-                ", \"outcomes\": [{\"title\":\"" + Settings.YesOptionName + "\"}, {\"title\":\"" +
-                Settings.NoOptionName + "\"}]}");
+                "\", \"title\":\"" + JSON.Escape(Settings.PredictionTitle) + "\", \"prediction_window\":" + Settings.LockTime +
+                ", \"outcomes\": [{\"title\":\"" + JSON.Escape(Settings.YesOptionName) + "\"}, {\"title\":\"" +
+                JSON.Escape(Settings.NoOptionName) + "\"}]}");
             currentPredictionID = j["data"][0]["id"];
             foreach (var outcome in j["data"][0]["outcomes"])
             {
@@ -267,12 +267,12 @@ namespace LiveSplit.UI.Components
             return j;
         }
 
-        private dynamic ResolveCurrentPrediction(bool success)
+        private async Task<dynamic> ResolveCurrentPredictionAsync(bool success)
         {
             if (!hasClosedPrediction)
             {
                 hasClosedPrediction = true;
-                return DoWebRequest("https://api.twitch.tv/helix/predictions", "PATCH",
+                return await DoWebRequestAsync("https://api.twitch.tv/helix/predictions", "PATCH",
                     "{\"broadcaster_id\":\"" + StreamingPredictionsSettings.userID +
                     "\", \"id\":\"" + currentPredictionID + "\", \"status\":\"RESOLVED\", \"winning_outcome_id\": \"" +
                     (success ? yesID : noID) + "\"}");
@@ -283,12 +283,12 @@ namespace LiveSplit.UI.Components
             }
         }
 
-        private dynamic CancelCurrentPrediction()
+        private async Task<dynamic> CancelCurrentPredictionAsync()
         {
             if (!hasClosedPrediction)
             {
                 hasClosedPrediction = true;
-                return DoWebRequest("https://api.twitch.tv/helix/predictions", "PATCH",
+                return await DoWebRequestAsync("https://api.twitch.tv/helix/predictions", "PATCH",
                     "{\"broadcaster_id\":\"" + StreamingPredictionsSettings.userID +
                     "\", \"id\":\"" + currentPredictionID + "\", \"status\":\"CANCELED\"}");
             }
@@ -298,14 +298,14 @@ namespace LiveSplit.UI.Components
             }
         }
 
-        private dynamic LockCurrentPrediction()
+        private async Task<dynamic> LockCurrentPredictionAsync()
         {
-            return DoWebRequest("https://api.twitch.tv/helix/predictions", "PATCH",
+            return await DoWebRequestAsync("https://api.twitch.tv/helix/predictions", "PATCH",
                 "{\"broadcaster_id\":\"" + StreamingPredictionsSettings.userID +
                 "\", \"id\":\"" + currentPredictionID + "\", \"status\":\"LOCKED\"}");
         }
 
-        private dynamic DoWebRequest(string url, string method, string data = null)
+        private async Task<dynamic> DoWebRequestAsync(string url, string method, string data = null)
         {
             WebRequest r2 = WebRequest.Create(url);
             r2.Headers.Add("Authorization", "Bearer " + Settings.OAuthToken);
@@ -322,11 +322,11 @@ namespace LiveSplit.UI.Components
 
                 using (Stream requestStream = r2.GetRequestStream())
                 {
-                    requestStream.Write(bytes, 0, bytes.Length);
+                    await requestStream.WriteAsync(bytes, 0, bytes.Length);
                 }
             }
 
-            var requestResponse = r2.GetResponse();
+            var requestResponse = await r2.GetResponseAsync();
             StreamReader sr2 = new StreamReader(requestResponse.GetResponseStream());
             var requestResponseData = sr2.ReadToEnd();
             Log.Info("Got web Request response: " + requestResponseData);
